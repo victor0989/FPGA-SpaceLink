@@ -42,6 +42,7 @@ Radiation in space can cause Single Event Upsets (SEUs) in FPGAs. To mitigate th
 Video Processing for ISS
 The ZCU102 implements a video funtionality.
 ---
+![FPGA-SpaceLink Overview](https://github.com/victor0989/FPGA-SpaceLink/blob/main/Captura%20de%20pantalla%202025-02-02%20014008.png)
 
 ## FPGA Selection for Space Applications
 
