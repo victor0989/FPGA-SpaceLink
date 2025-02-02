@@ -34,6 +34,13 @@ Key challenges include addressing **radiation resistance, power efficiency,** an
 - **Quantum-based techniques** for advanced radiation mitigation.
 - **Engine designs inspired by the Parker Solar Probe** to boost system efficiency in harsh conditions.
 
+🌌 Cosmic Radiation Sensor Integration
+Radiation Challenges & Quantum Innovations
+Radiation in space can cause Single Event Upsets (SEUs) in FPGAs. To mitigate these effects, FPGA-SpaceLink explores:
+
+🎥 Video and Communication Integration
+Video Processing for ISS
+The ZCU102 implements a video funtionality.
 ---
 
 ## FPGA Selection for Space Applications
@@ -61,43 +68,8 @@ set_property IOSTANDARD LVCMOS18 [get_ports LED]
 
 ---
 
-🌌 Cosmic Radiation Sensor Integration
-Radiation Challenges & Quantum Innovations
-Radiation in space can cause Single Event Upsets (SEUs) in FPGAs. To mitigate these effects, FPGA-SpaceLink explores:
 
-Quantum-based shielding techniques
-Advanced error correction algorithms
-Radiation Sensors Deployed
-TE Connectivity RADFETs: For monitoring accumulated radiation dose.
-AMS TID Sensors: For detecting ionizing radiation.
-Timepix3 (CERN): An advanced sensor for particle tracking.
-Integration Steps
-Connect sensors to the FPGA via I2C or SPI.
-Filter and process sensor signals using FPGA digital logic and DSP blocks.
-Transmit data via Ethernet or SpaceWire to the ISS communication modules.
 
-🎥 Video and Communication Integration
-Video Processing for ISS
-The ZCU102 implements a video pipeline that:
 
-Captures video via MIPI CSI or HDMI IN from cameras.
-Processes video using FPGA logic for filtering, compression, and image enhancement.
-Transmits video via Ethernet or SpaceWire to ground stations.
-Communication Protocols
-To ensure reliable data transfer in space, the project integrates the SpaceWire protocol, which is widely adopted in satellite and ISS communications.
-
-🛰️ Advanced Space Propulsion & Parker Solar Probe-Inspired Designs
-Future iterations of FPGA-SpaceLink will explore:
-
-FPGA-controlled propulsion models inspired by the Parker Solar Probe to enhance space navigation.
-Quantum-enhanced radiation shielding to further protect onboard electronics.
-FPGA-driven plasma propulsion systems to improve maneuverability and efficiency in deep space missions.
-
-Conclusion
-Earth-based prototyping is performed with the ZCU102 board.
-For ISS deployment, select radiation-tolerant FPGAs (e.g., Kintex UltraScale XQRKU060, Microsemi RTG4, or Virtex-5QV).
-Utilize Ethernet or SpaceWire for robust, high-speed communication.
-Integrate radiation sensors via I2C/SPI and process data using the FPGA's ARM cores and digital logic.
-Investigate quantum-based techniques for error correction and enhanced shielding to boost system reliability.
 
 
