@@ -2,6 +2,8 @@
 
 FPGA-SpaceLink is an innovative project dedicated to integrating Field-Programmable Gate Arrays (FPGAs) into the International Space Station (ISS) to support critical applications such as communication, video processing, and cosmic/solar radiation sensing. The project also investigates cutting-edge quantum-based techniques for radiation mitigation and propulsion designs inspired by the Parker Solar Probe.
 
+For additional insights into space station architecture and related challenges, check out this [book on the International Space Station](https://www.amazon.es/International-Space-Station-Architecture-Beyond/dp/0993072135).
+
 ---
 
 ## Table of Contents
