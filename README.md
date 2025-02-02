@@ -68,7 +68,13 @@ set_property IOSTANDARD LVCMOS18 [get_ports LED]
 
 ---
 
+Ethernet Communication
+set_property PACKAGE_PIN AA11 [get_ports ETH_TXD[0]]
+set_property PACKAGE_PIN AB12 [get_ports ETH_RXD[0]]
 
+Radiation Sensor Integration (SPI/I2C)
+set_property PACKAGE_PIN C4 [get_ports I2C_SCL]
+set_property PACKAGE_PIN C5 [get_ports I2C_SDA]
 
 
 
