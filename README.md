@@ -33,6 +33,9 @@ Key challenges include addressing **radiation resistance, power efficiency,** an
 
 - **Quantum-based techniques** for advanced radiation mitigation.
 - **Engine designs inspired by the Parker Solar Probe** to boost system efficiency in harsh conditions.
+- ![FPGA-SpaceLink Overview](https://github.com/victor0989/FPGA-SpaceLink/blob/main/Captura%20de%20pantalla%202025-02-02%20014008.png)
+
+---
 
 🌌 Cosmic Radiation Sensor Integration
 Radiation Challenges & Quantum Innovations
@@ -42,7 +45,7 @@ Radiation in space can cause Single Event Upsets (SEUs) in FPGAs. To mitigate th
 Video Processing for ISS
 The ZCU102 implements a video funtionality.
 ---
-![FPGA-SpaceLink Overview](https://github.com/victor0989/FPGA-SpaceLink/blob/main/Captura%20de%20pantalla%202025-02-02%20014008.png)
+
 
 ## FPGA Selection for Space Applications
 
