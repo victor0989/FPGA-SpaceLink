@@ -1,0 +1,42 @@
+GEM3 Ethernet (MIO 64-77)
+ [Figure 2-1, callout 12]
+ The PS-side Gigabit Ethernet MAC (GEM) implements a 10/100/1000 Mb/s Ethernet 
+interface (see Figure 3-12), which connects to a TI DP83867IRPAP Ethernet RGMII PHY 
+before being routed to an RJ45 Ethernet connector. The RGMII Ethernet PHY is boot 
+strapped to PHY address 5'b01100 (0x0C) and Auto Negotiation is set to Enable. 
+Communication with the device is covered in the DP83867 RGMII PHY data sheet [Ref 20].
+ X-Ref Target - Figure 3-12
+ X16527-050117
+ Figure 3-12: Ethernet Block Diagram
+ 10/100/1000 MHz Tri-Speed Ethernet PHY
+ [Figure 2-1, callout 12]
+ The ZCU106 board uses the TIDP83867IRPAP Ethernet RGMII PHY [Ref 20] (U98) for 
+Ethernet communications at 10 Mb/s, 100 Mb/s, or 1000 Mb/s. The board supports RGMII 
+mode only. The PHY connection to a user-provided Ethernet cable is through a Wurth 
+7499111221A RJ-45 connector (P12) with built-in magnetics.
+ The Ethernet connections from XCZU7EV MPSoC U1 to the DP83867IRPAP PHY device at 
+U98 are listed in Table 3-14.
+ Table 3-14: DP83867 PHY Connections to XCZU7EV MPSoC 
+XCZU7EV
+ (U1) Pin 
+Net Name 
+DP83867 PHY U98 
+Pin #
+ J31
+ J32
+ J34
+ K28
+ ZCU106 Board User Guide
+ MIO64_ENET_TX_CLK 
+MIO65_ENET_TX_D0 
+MIO66_ENET_TX_D1 
+MIO67_ENET_TX_D2 
+40
+ 38
+ 37
+ 36
+ Pin Name
+ GTX_CLK 
+TX_DO 
+TX_D1 
+TX_D2
