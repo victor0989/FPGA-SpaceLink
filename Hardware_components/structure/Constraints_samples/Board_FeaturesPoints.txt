@@ -1,0 +1,69 @@
+Board Features: 
+ The ZCU106 evaluation board features are listed here. Detailed information for each feature 
+is provided in Component Descriptions in Chapter 3.
+ • XCZU7EV-2, FFVC1156 package
+ • PL VCCINT for range in data sheet
+ • Form factor for PCIe® Gen[1-3]x4 endpoint (PL GTH transceiver), Micro-ATX chassis 
+footprint
+ • Configuration from Quad SPI
+ • Configuration from SD card
+ • Configuration over JTAG with platform cable USB header
+ • Configuration over JTAG with Arm 20-pin header
+ • Configuration over USB-to-JTAG bridge
+ • Clocks
+
+ USER_MGT_SI570
+ PL_74.25M, PL_125M, PL_300M
+ USER_SMA_MGT
+ GTR_DP, GTR_USB3, GTR_SATA
+ PS_REF_CLK
+ • PS DDR4 64-b
+ it SO
+ DIMM
+ • PL DDR4 64-bit component (4x16-bit)
+ • PS-GTR as
+ sig
+ nment
+ °
+ °
+ °
+ DisplayPort (two GTRs)
+ USB3 (one GTR)
+ SATA (one GTR)
+ • PL GTH transceiver assignment (20 total)
+SFP+ (two GTH transceivers)
+ FMC HPC0 DP (eight GTH transceivers)
+ • PL FMC HPC0 connectivity - full LA bus
+ • PL FMC HPC1 connectivity - partial LA bus
+ • PS MIO: dua
+ l Quad SPI
+ • PS MIO: two channels of quad-UART bridge
+ • PS MIO: CAN
+ • PS MIO: I2C shared across PS and PL
+ • PS MIO: SD
+ • PS MIO: DisplayPort
+ • PS MIO: system controller I/F
+ • PS MIO: Et
+ hern
+ et
+ • PS MIO: USB3
+ • PS-side user LED (one)
+ • PS-side user pushbutton (one)
+ • PL-side user LEDs (eight)
+ • PL-side user DIP switch (8-position)
+ • PL-side user pushbuttons (five)
+ • PL-side CPU reset pushbutton
+ • PL-si
+ de PMOD hea
+ ders
+ • PL-side bank 0 PROG_B pushbutton
+ • Security - PSBATT button battery backup
+ • SYSMON (previously XADC), prototype header
+ • Operational switches (power on/off, PROG_B, boot mode DIP switch)
+ • Operational status LEDs (power status, INIT, DONE, PG, JTAG status, DDR power good)
+ • Power management
+ High-definition multimedia interface (HDMI®) (three GTH transceivers)
+ FMC HPC1 DP (one GTH transceiver)
+ PCIe (four GTH transceivers)
+ SDI (one GTH transceiver)
+ SMA (one GTH transceiver)
