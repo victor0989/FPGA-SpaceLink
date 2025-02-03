@@ -1,0 +1,13 @@
+## Conexiones SFP0
+set_property PACKAGE_PIN Y4 [get_ports { SFP0_TX_P }];
+set_property PACKAGE_PIN Y3 [get_ports { SFP0_TX_N }];
+set_property PACKAGE_PIN AA2 [get_ports { SFP0_RX_P }];
+set_property PACKAGE_PIN AA1 [get_ports { SFP0_RX_N }];
+set_property -dict { PACKAGE_PIN AE22 IOSTANDARD LVCMOS12 } [get_ports { SFP0_TX_DISABLE_B }];
+
+## Conexiones SFP1
+set_property PACKAGE_PIN W6 [get_ports { SFP1_TX_P }];
+set_property PACKAGE_PIN W5 [get_ports { SFP1_TX_N }];
+set_property PACKAGE_PIN W2 [get_ports { SFP1_RX_P }];
+set_property PACKAGE_PIN W1 [get_ports { SFP1_RX_N }];
+set_property -dict { PACKAGE_PIN AF20 IOSTANDARD LVCMOS12 } [get_ports { SFP1_TX_DISABLE_B }];
