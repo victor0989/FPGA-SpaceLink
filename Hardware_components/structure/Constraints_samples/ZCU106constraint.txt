@@ -1,0 +1,38 @@
+## HDMI Connections
+set_property -dict { PACKAGE_PIN AN6 IOSTANDARD LVDS } [get_ports { HDMI_TX0_P }];
+set_property -dict { PACKAGE_PIN AN5 IOSTANDARD LVDS } [get_ports { HDMI_TX0_N }];
+set_property -dict { PACKAGE_PIN AM4 IOSTANDARD LVDS } [get_ports { HDMI_TX1_P }];
+set_property -dict { PACKAGE_PIN AM3 IOSTANDARD LVDS } [get_ports { HDMI_TX1_N }];
+set_property -dict { PACKAGE_PIN AL6 IOSTANDARD LVDS } [get_ports { HDMI_TX2_P }];
+set_property -dict { PACKAGE_PIN AL5 IOSTANDARD LVDS } [get_ports { HDMI_TX2_N }];
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_P }];
+set_property -dict { PACKAGE_PIN F21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_N }];
+set_property -dict { PACKAGE_PIN N8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SCL }];
+set_property -dict { PACKAGE_PIN N9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SDA }];
+set_property -dict { PACKAGE_PIN N11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_EN }];
+set_property -dict { PACKAGE_PIN M12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_CEC }];
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_HPD }];
+
+## HDMI Additional Connections
+set_property -dict { PACKAGE_PIN G8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_LOL }];
+set_property -dict { PACKAGE_PIN H8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_RST }];
+set_property -dict { PACKAGE_PIN G14 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_P }];
+set_property -dict { PACKAGE_PIN F13 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_N }];
+
+## HDMI Input (Rx)
+set_property -dict { PACKAGE_PIN AP4 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_P }];
+set_property -dict { PACKAGE_PIN AP3 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_N }];
+set_property -dict { PACKAGE_PIN AN2 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_P }];
+set_property -dict { PACKAGE_PIN AN1 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_N }];
+set_property -dict { PACKAGE_PIN AL2 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_P }];
+set_property -dict { PACKAGE_PIN AL1 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_N }];
+set_property -dict { PACKAGE_PIN AC10 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_P }];
+set_property -dict { PACKAGE_PIN AC9 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_N }];
+set_property -dict { PACKAGE_PIN M8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_PWR_DET }];
+set_property -dict { PACKAGE_PIN M10 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_HPD }];
+set_property -dict { PACKAGE_PIN N12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SCL }];
+set_property -dict { PACKAGE_PIN P12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SDA }];
+set_property -dict { PACKAGE_PIN M9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SCL }];
+set_property -dict { PACKAGE_PIN M11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SDA }];
