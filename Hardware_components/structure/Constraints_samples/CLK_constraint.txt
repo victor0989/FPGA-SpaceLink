@@ -1,0 +1,3 @@
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
