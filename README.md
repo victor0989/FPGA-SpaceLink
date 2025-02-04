@@ -4,6 +4,7 @@ FPGA-SpaceLink is an innovative project dedicated to integrating Field-Programma
 
 For additional insights into space station architecture and related challenges, check out this [book on the International Space Station](https://www.amazon.es/International-Space-Station-Architecture-Beyond/dp/0993072135).
 
+![Nasa_telecomunications](https://github.com/victor0989/FPGA-SpaceLink/blob/main/nasa_images/antennas/locations/Captura%20de%20pantalla%202025-02-04%20124115.png)
 
 
 ---
