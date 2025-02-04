@@ -1,0 +1,12 @@
+ Extensive market trade study, camera evaluation and tests performed – Broadcast quality 3 chip box cameras and associated lenses exceed limits – Smaller ‘Professional’ 3 chip cameras underperformed and/or failed radiation testing – Inspection/security cameras not compatible with broadcast standards – DSLR camera/lenses at upper SWAP limit but none provided adequate external control capabilities 
+• Nikon D4 camera undergoing testing as the next EVA camera with extensive USB control 
+interface, Ethernet and HDMI interfaces available but with limited functionality – Long history of good working relationship with Nikon – Nikon believed camera firmware updates could be made to meet our Ethernet control and 
+HDMI output requirements – All controls required for camera operation could be controlled remotely – Radiation performance acceptable  
+» ~95 percent of damaged pixels anneal with time 
+» Expected life due to permanent damage should exceed 2 – 4 year planned EHDC 
+operational life 
+• Other DSLR cameras required manual switch activations for basic operations 
+• External zoom lens drive would have to be added for any DSLR 
+• DSLR cameras have known video performance deficiencies and few fine adjustments normally 
+found on professional video cameras 
+• DSLR’s are used extensively for television and cinema productions  
