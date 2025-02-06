@@ -1,0 +1,25 @@
+EHDC Components Overview
+Power Control: Allows operator control to reset power to components in the event of a detected Single Event Upset (SEU) and controls standby mode (camera & encoder turned off).
+
+Status Telemetry: Monitors temperature, pressure, and currents.
+
+Watchdog Timer: Ensures system reliability by resetting the system in case of a malfunction.
+
+Control Camera Zoom Lens Function: Manages the zoom lens of the camera.
+
+Video Encoder: Uses the AVN443HD Encoder from Visionary Solutions Incorporated (VSI), which provides HD H.264 encoding with a bit rate range of 5-20 Mbps, nominally set to 8 Mbps.
+
+Power Supply: The primary power supply is 120 VDC, which is converted to 24 VDC. A secondary board provides separate power supplies for each component1.
+
+Heaters: Thermostat-controlled heaters are used to maintain optimal operating temperatures.
+
+Compatibility with ISS
+Power Sharing: The EHDC shares power with the Luminaire heater power, utilizing 120 VDC directly from the input power.
+
+Control and Communication: The EHDC is controlled from the Mission Control Center (MCC) and uses Commercial Off-the-Shelf (COTS) hardware.
+
+Installation: The EHDC can be installed either during an Internal Spacewalk (IVA) or an Extravehicular Activity (EVA).
+
+Video Output: Provides standard HD video (720P60) and uses H.264 compression with MPEG2 transport stream.
+
+Wireless Communication: Conforms to EWC wireless Ethernet-based communications (802.11n, 5.2 GHz) and is WiFi compatible through the ISS Joint Station LAN (JSL).
