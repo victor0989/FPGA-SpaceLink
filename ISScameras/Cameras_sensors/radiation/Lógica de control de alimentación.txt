@@ -1,0 +1,29 @@
+// Lógica de control de alimentación power
+reg power_state;
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        power_state <= 0;
+    else if (power_control)
+        power_state <= power_state;
+end
+
+// Lógica telemetria de estado
+reg [15:0] temperatura, pressure, current;
+always @(posedge clk) begin
+    temperatura <= temp_sensor;
+    pressure <= press_sensor;
+    current <= current_sensor;
+end
+
+// Lógica del watchdog timer
+reg [15:0] zoom_level;
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        watchdog_counter <= 0;
+    else
+        watchdog_counter <= watchdog_counter + 1;
+end
+
+assign watchdog_reset = (watchdog_counter == 32'hFFFFFFFF);
+
+// Control del zoom de la cámara
