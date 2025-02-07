@@ -1,0 +1,14 @@
+module thermal_to_video (
+    input wire clk,
+    input wire [15:0] thermal_data, // Datos térmicos de entrada
+    output reg [23:0] rgb_data      // Datos de video RGB de salida
+);
+
+// Tabla de colores o lógica para mapear temperatura a RGB
+always @(posedge clk) begin
+    // Ejemplo simple: mapeo lineal
+    // Ajusta según la resolución de tu sensor térmico
+    rgb_data <= {thermal_data[15:8], thermal_data[15:8], thermal_data[15:8]}; // Escala de grises
+end
+
+endmodule

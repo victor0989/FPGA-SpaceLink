@@ -1,0 +1,113 @@
+Guía: Creación de DCPs para Ethernet (Integración de IPs de Synplify Pro en Vivado)
+
+Paso 1: Crear un Proyecto RTL en Vivado para el Bloque “sinegen”
+
+Inicia Vivado IDE.
+
+Crear un nuevo proyecto:
+
+Haz clic en Create Project. Se abrirá el asistente para nuevos proyectos. Haz clic en Next.
+Configura el nombre del proyecto:
+
+Project Name: proj_synplify_netlist
+Haz clic en Next.
+Selecciona el tipo de proyecto:
+
+Escoge RTL Project (sin incluir simulación, a menos que se requiera) y haz clic en Next.
+Agregar fuentes:
+
+Haz clic en Add Files.
+Navega a la carpeta Vivado_Debug/src/lab4 y selecciona el archivo sinegen.vhd.
+Target Language: VHDL.
+Asegúrate de que esté seleccionada la opción Copy sources into project.
+Haz clic en Next.
+Agregar los archivos de los IPs (sub-módulos):
+
+Haz clic en Add Files nuevamente.
+Ubica y selecciona los archivos sine_high.xci, sine_low.xci y sine_mid.xci (ubicados en la misma carpeta).
+Haz clic en Next.
+Seleccionar la placa o parte:
+
+Bajo Default Parts, selecciona Boards y elige la Kintex-7 KC705 Evaluation Platform (o la que corresponda a tu hardware).
+Haz clic en Next.
+Resumen y finalización:
+
+Revisa que la información sea correcta en el New Project Summary y haz clic en Finish.
+Ajustar opciones de síntesis:
+
+En el panel Flow Navigator, bajo Project Manager, selecciona Settings.
+En el cuadro de diálogo, en el panel izquierdo, haz clic en Synthesis.
+En el panel derecho, en la opción -flatten_hierarchy, selecciona none.
+Haz clic en OK.
+Ejecutar la síntesis:
+
+En el Flow Navigator, dentro de la carpeta Synthesis, haz clic en Run Synthesis.
+Espera a que finalice el proceso. Cuando aparezca el diálogo Synthesis Completed, selecciona Open Synthesized Design y haz clic en OK.
+Salir de Vivado:
+
+Ve a File > Exit y confirma al salir.
+Paso 2: Crear un Proyecto Post-Síntesis en Vivado
+
+Reinicia Vivado IDE.
+
+Crear un nuevo proyecto Post-Síntesis:
+
+Haz clic en Create Project y luego en Next.
+Configura el nombre del proyecto:
+
+Project Name: proj_synplify
+Haz clic en Next.
+Selecciona el tipo de proyecto:
+
+Escoge Post-synthesis Project y haz clic en Next.
+Agregar fuentes de netlist:
+
+Haz clic en Add Files.
+Navega a la carpeta Vivado_Debug/synopsys/rev_1 y selecciona el archivo sinegen_demo.edf.
+Haz clic en OK.
+Agregar el archivo netlist y los DCPs:
+
+Haz clic en Add Files de nuevo.
+Ve a la carpeta proj_synplify_netlist/proj_synplify_netlist.runs/synth1 y selecciona el archivo sinegen.dcp.
+Agregar DCPs de los IPs:
+Haz clic en Add Directories.
+Navega a proj_synplify_netlist/proj_synplify_netlist.srcs/sources_1/ip y selecciona las carpetas:
+sine_high
+sine_mid
+sine_low
+En el diálogo Add Source Files, asegúrate de que esté marcada la opción Copy Sources into Project.
+Haz clic en Next.
+Agregar archivo de constraints:
+
+Haz clic en Add Files.
+Navega a la carpeta Vivado_Debug/src y selecciona el archivo de constraints (por ejemplo, sinegen_demo_kc705.xdc).
+En el diálogo, marca la opción Copy Constraints into Project.
+Haz clic en Next.
+Seleccionar la placa:
+
+Bajo Default Part, selecciona Boards y elige la Kintex-7 KC705 Evaluation Platform (con la versión adecuada para tu hardware).
+Haz clic en Next.
+Resumen y finalización:
+
+Revisa la configuración en el resumen y haz clic en Finish.
+Verificar el módulo principal:
+
+En la ventana Sources, asegúrate de que sinegen_demo.edf esté definido como el top module.
+Paso 3: Agregar Nets de Depuración (Debug Nets)
+
+Abrir el diseño sintetizado:
+
+En el Flow Navigator de Vivado, bajo Netlist Analysis, selecciona Open Synthesized Design.
+Seleccionar los nets para depuración:
+
+En la pestaña Netlist (dentro de la ventana de Netlist), expande el árbol de Nets.
+Selecciona las siguientes señales:
+GPIO_BUTTONS_c(2)
+sine (20)
+(El número entre paréntesis indica que se han detectado 20 bits o instancias de la señal.)
+Marcar las señales para debug:
+
+Con las señales seleccionadas, haz clic derecho y elige Mark Debug.
+Esto permitirá que dichas señales sean accesibles para herramientas de depuración (por ejemplo, para conectar a ILA).
+
+*************************************************************************************************************************************************************

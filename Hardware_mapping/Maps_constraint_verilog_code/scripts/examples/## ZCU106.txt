@@ -1,0 +1,1433 @@
+## ZCU106
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+
+## Pines LED Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }]; # Pin 61 - LED_2 - actividad RX/TX
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }]; # Pin 62 - LED_1 - 100BASE-T link
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }]; # Pin 63 - LED_0 - link establecido
+
+## Pines adicionales para switches (ejemplo)
+set_property -dict { PACKAGE_PIN J15 IOSTANDARD LVCMOS33 } [get_ports { swt[0] }];
+set_property -dict { PACKAGE_PIN L16 IOSTANDARD LVCMOS33 } [get_ports { swt[1] }];
+set_property -dict { PACKAGE_PIN M13 IOSTANDARD LVCMOS33 } [get_ports { swt[2] }];
+set_property -dict { PACKAGE_PIN R15 IOSTANDARD LVCMOS33 } [get_ports { swt[3] }];
+set_property -dict { PACKAGE_PIN R17 IOSTANDARD LVCMOS33 } [get_ports { swt[4] }];
+set_property -dict { PACKAGE_PIN T18 IOSTANDARD LVCMOS33 } [get_ports { swt[5] }];
+set_property -dict { PACKAGE_PIN U18 IOSTANDARD LVCMOS33 } [get_ports { swt[6] }];
+set_property -dict { PACKAGE_PIN R13 IOSTANDARD LVCMOS33 } [get_ports { swt[7] }];
+
+********************************************************************************************************************************************
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+
+## Configuración de Clocks Fijos
+set_property -dict { PACKAGE_PIN R24 IOSTANDARD LVDS_25 } [get_ports { PS_REF_CLK }];
+set_property -dict { PACKAGE_PIN D15 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_P }];
+set_property -dict { PACKAGE_PIN D14 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_N }];
+set_property -dict { PACKAGE_PIN G9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_P }];
+set_property -dict { PACKAGE_PIN H9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_N }];
+set_property -dict { PACKAGE_PIN P27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_P }];
+set_property -dict { PACKAGE_PIN P28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_N }];
+set_property -dict { PACKAGE_PIN M27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_P }];
+set_property -dict { PACKAGE_PIN M28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_N }];
+set_property -dict { PACKAGE_PIN M31 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_P }];
+set_property -dict { PACKAGE_PIN M32 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_N }];
+
+## Configuración de Clocks Variables
+set_property -dict { PACKAGE_PIN AH12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_P }];
+set_property -dict { PACKAGE_PIN AJ12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_N }];
+set_property -dict { PACKAGE_PIN U10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_P }];
+set_property -dict { PACKAGE_PIN U9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_N }];
+set_property -dict { PACKAGE_PIN R10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_P }];
+set_property -dict { PACKAGE_PIN R9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_N }];
+set_property -dict { PACKAGE_PIN AA10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_P }];
+set_property -dict { PACKAGE_PIN AA9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_N }];
+set_property -dict { PACKAGE_PIN W10 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_P }];
+set_property -dict { PACKAGE_PIN W9 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_N }];
+set_property -dict { PACKAGE_PIN U108_28 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_P }];
+set_property -dict { PACKAGE_PIN U108_29 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_N }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }]; # Pin 61 - LED_2 - actividad RX/TX
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }]; # Pin 62 - LED_1 - 100BASE-T link
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }]; # Pin 63 - LED_0 - link establecido
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }]; # Arm trace power
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];  # Power inhibit
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }]; # PS_MODE0
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }]; # PS_MODE1
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }]; # PS_MODE2
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }]; # PS_MODE3
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }]; # GPIO[1]
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports { gpio[1] }]; # GPIO[2]
+set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { gpio[2] }]; # GPIO[3]
+set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 } [get_ports { gpio[3] }]; # GPIO[4]
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports { gpio[4] }]; # GPIO[5]
+
+## Pines para GPIO adicionales (SW13 y SW1)
+set_property -dict { PACKAGE_PIN X7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[0] }]; # GPIO adicional (SW13)
+set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[1] }]; # Main power switch (SW1)
+
+**********************************************************************************************************************************
+##ZCU106
+module my_module (
+    input wire clk,               // Reloj de sistema
+    input wire [15:0] swt,        // Switches
+    output wire [7:0] led,        // LEDs
+    input wire LED_2,             // Actividad RX/TX
+    input wire LED_1,             // 100BASE-T link
+    input wire LED_0,             // Link establecido
+    input wire [3:0] ps_mode,     // DIP Switch PS_MODE select
+    input wire [4:0] gpio         // DIP Switch MSP430 GPIO
+);
+
+// Configuración de LEDs según los switches:
+assign led = swt[7:0];
+
+// Instancia del módulo Ethernet y Switch Interface:
+ethernet_and_switch_interface eth_switch_inst (
+    .clk(clk),
+    .swt({swt[1:0]}),
+    .ps_mode(ps_mode),
+    .gpio(gpio),
+    .LED_2(LED_2),
+    .LED_1(LED_1),
+    .LED_0(LED_0),
+    .led_status()
+);
+
+endmodule
+*****************************************************************************************************************************************
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }]; # Pin 61 - LED_2 - actividad RX/TX
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }]; # Pin 62 - LED_1 - 100BASE-T link
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }]; # Pin 63 - LED_0 - link establecido
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }]; # Arm trace power
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];  # Power inhibit
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }]; # PS_MODE0
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }]; # PS_MODE1
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }]; # PS_MODE2
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }]; # PS_MODE3
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }]; # GPIO[1]
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports { gpio[1] }]; # GPIO[2]
+set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { gpio[2] }]; # GPIO[3]
+set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 } [get_ports { gpio[3] }]; # GPIO[4]
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports { gpio[4] }]; # GPIO[5]
+
+## Pines para GPIO adicionales (SW13 y SW1)
+set_property -dict { PACKAGE_PIN X7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[0] }]; # GPIO adicional (SW13)
+set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[1] }]; # Main power switch (SW1)
+
+*******************************************************************************************************************************************
+module ethernet_and_switch_interface (
+    input wire clk,               // Reloj de sistema
+    input wire arm_trace_power,   // Arm trace power
+    input wire power_inhibit,     // Power inhibit
+    input wire [3:0] ps_mode,     // DIP Switch PS_MODE select
+    input wire [4:0] gpio,        // DIP Switch MSP430 GPIO
+    input wire LED_2,             // Actividad RX/TX
+    input wire LED_1,             // 100BASE-T link
+    input wire LED_0,             // Link establecido
+    input wire [1:0] gpio_extra,  // GPIO adicionales
+    output reg [2:0] led_status   // Estado de los LEDs
+);
+
+// Lógica para manejar los LEDs Ethernet
+always @(posedge clk) begin
+    led_status[0] <= LED_0; // Link establecido
+    led_status[1] <= LED_1; // 100BASE-T link
+    led_status[2] <= LED_2; // Actividad RX/TX
+end
+
+// Lógica para manejar los switches y GPIO
+always @(posedge clk) begin
+    // Aquí puedes añadir la lógica para manejar los switches y GPIO
+end
+
+endmodule
+
+************************************************************************************************************************************************
+## integrar modulos
+module my_module (
+    input wire clk,               // Reloj de sistema
+    input wire [15:0] swt,        // Switches
+    output wire [7:0] led,        // LEDs
+    input wire arm_trace_power,   // Arm trace power
+    input wire power_inhibit,     // Power inhibit
+    input wire [3:0] ps_mode,     // DIP Switch PS_MODE select
+    input wire [4:0] gpio,        // DIP Switch MSP430 GPIO
+    input wire [1:0] gpio_extra,  // GPIO adicionales
+    input wire LED_2,             // Actividad RX/TX
+    input wire LED_1,             // 100BASE-T link
+    input wire LED_0              // Link establecido
+);
+
+// Configuración de LEDs según los switches:
+assign led = swt[7:0];
+
+// Instancia del módulo Ethernet y Switch Interface:
+ethernet_and_switch_interface eth_switch_inst (
+    .clk(clk),
+    .arm_trace_power(arm_trace_power),
+    .power_inhibit(power_inhibit),
+    .ps_mode(ps_mode),
+    .gpio(gpio),
+    .gpio_extra(gpio_extra),
+    .LED_2(LED_2),
+    .LED_1(LED_1),
+    .LED_0(LED_0),
+    .led_status()
+);
+
+endmodule
+***********************************************************************************************************************************************
+##Relojes mejora verilog
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+
+## Configuración de Clocks Fijos
+set_property -dict { PACKAGE_PIN R24 IOSTANDARD LVDS_25 } [get_ports { PS_REF_CLK }];
+set_property -dict { PACKAGE_PIN D15 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_P }];
+set_property -dict { PACKAGE_PIN D14 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_N }];
+set_property -dict { PACKAGE_PIN G9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_P }];
+set_property -dict { PACKAGE_PIN H9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_N }];
+set_property -dict { PACKAGE_PIN P27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_P }];
+set_property -dict { PACKAGE_PIN P28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_N }];
+set_property -dict { PACKAGE_PIN M27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_P }];
+set_property -dict { PACKAGE_PIN M28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_N }];
+set_property -dict { PACKAGE_PIN M31 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_P }];
+set_property -dict { PACKAGE_PIN M32 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_N }];
+
+## Configuración de Clocks Variables
+set_property -dict { PACKAGE_PIN AH12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_P }];
+set_property -dict { PACKAGE_PIN AJ12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_N }];
+set_property -dict { PACKAGE_PIN U10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_P }];
+set_property -dict { PACKAGE_PIN U9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_N }];
+set_property -dict { PACKAGE_PIN R10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_P }];
+set_property -dict { PACKAGE_PIN R9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_N }];
+set_property -dict { PACKAGE_PIN AA10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_P }];
+set_property -dict { PACKAGE_PIN AA9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_N }];
+set_property -dict { PACKAGE_PIN W10 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_P }];
+set_property -dict { PACKAGE_PIN W9 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_N }];
+set_property -dict { PACKAGE_PIN U108_28 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_P }];
+set_property -dict { PACKAGE_PIN U108_29 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_N }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }]; # Pin 61 - LED_2 - actividad RX/TX
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }]; # Pin 62 - LED_1 - 100BASE-T link
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }]; # Pin 63 - LED_0 - link establecido
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }]; # Arm trace power
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];  # Power inhibit
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }]; # PS_MODE0
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }]; # PS_MODE1
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }]; # PS_MODE2
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }]; # PS_MODE3
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }]; # GPIO[1]
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports { gpio[1] }]; # GPIO[2]
+set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { gpio[2] }]; # GPIO[3]
+set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 } [get_ports { gpio[3] }]; # GPIO[4]
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports { gpio[4] }]; # GPIO[5]
+
+## Pines para GPIO adicionales (SW13 y SW1)
+set_property -dict { PACKAGE_PIN X7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[0] }]; # GPIO adicional (SW13)
+set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[1] }]; # Main power switch (SW1)
+
+**********************************************************************************************************************************************
+## control de relojes verilog
+
+module clock_and_ethernet_interface (
+    input wire clk,               // Reloj de sistema
+    input wire arm_trace_power,   // Arm trace power
+    input wire power_inhibit,     // Power inhibit
+    input wire [3:0] ps_mode,     // DIP Switch PS_MODE select
+    input wire [4:0] gpio,        // DIP Switch MSP430 GPIO
+    input wire [1:0] gpio_extra,  // GPIO adicionales
+    input wire PS_REF_CLK,        // Reloj PS_REF
+    input wire CLK_74_25_P,       // Reloj 74.25 MHz P
+    input wire CLK_74_25_N,       // Reloj 74.25 MHz N
+    input wire CLK_125_P,         // Reloj 125 MHz P
+    input wire CLK_125_N,         // Reloj 125 MHz N
+    input wire GTR_REF_CLK_SATA_P, // Reloj referencia SATA P
+    input wire GTR_REF_CLK_SATA_N, // Reloj referencia SATA N
+    input wire GTR_REF_CLK_USB3_P, // Reloj referencia USB3 P
+    input wire GTR_REF_CLK_USB3_N, // Reloj referencia USB3 N
+    input wire GTR_REF_CLK_DP_P,  // Reloj referencia DisplayPort P
+    input wire GTR_REF_CLK_DP_N,  // Reloj referencia DisplayPort N
+    input wire LED_2,             // Actividad RX/TX
+    input wire LED_1,             // 100BASE-T link
+    input wire LED_0,             // Link establecido
+    output reg [2:0] led_status   // Estado de los LEDs
+);
+
+// Lógica para manejar los LEDs Ethernet
+always @(posedge clk) begin
+    led_status[0] <= LED_0; // Link establecido
+    led_status[1] <= LED_1; // 100BASE-T link
+    led_status[2] <= LED_2; // Actividad RX/TX
+end
+
+// Lógica adicional para manejar los relojes y GPIO
+always @(posedge clk) begin
+    // Aquí puedes añadir la lógica para manejar los relojes y GPIO
+end
+
+endmodule
+
+************************************************************************************************************************
+##Ejemplo integración
+
+module my_module (
+    input wire clk,               // Reloj de sistema
+    input wire [15:0] swt,        // Switches
+    output wire [7:0] led,        // LEDs
+    input wire arm_trace_power,   // Arm trace power
+    input wire power_inhibit,     //
+*************************************************************************************************************************
+## Adaptar componentes
+
+ZCU106 Evaluation Board a cámaras térmicas avanzadas, detectores de radiación y sistemas de monitoreo de sensores de radiación, puedes investigar los siguientes componentes y configuraciones en el User Guide:
+
+## Video Codec Unit (VCU): Utiliza la unidad de códec de video integrada para procesar señales de cámaras térmicas.
+## PCIe Hard Block: Utiliza la interfaz PCIe para conectar dispositivos de alta velocidad, como cámaras térmicas avanzadas.
+
+## DDR4 SODIMM y Component Memory: Asegúrate de tener suficiente memoria para manejar los datos de las cámaras y sensores.
+## FPGA Programmable Logic (PL): Utiliza los bancos de lógica programable para implementar algoritmos de procesamiento de imágenes y detección de radiación.
+
+## I/O Expansion: Utiliza los conectores FMC-HPC para expandir las entradas y salidas, permitiendo la conexión de múltiples sensores y cámaras.
+## Clocking: Configura los relojes programables para sincronizar correctamente las cámaras y sensores.
+
+SFP+ Cages y SMA Connectors: Utiliza estos conectores para interfaces de alta velocidad y transmisión de datos
+***************************************************************************************************************************************************************
+
+##Archivo integrado
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## Configuración de Clocks Fijos
+set_property -dict { PACKAGE_PIN R24 IOSTANDARD LVDS_25 } [get_ports { PS_REF_CLK }];
+set_property -dict { PACKAGE_PIN D15 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_P }];
+set_property -dict { PACKAGE_PIN D14 IOSTANDARD LVDS_25 } [get_ports { CLK_74_25_N }];
+set_property -dict { PACKAGE_PIN G9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_P }];
+set_property -dict { PACKAGE_PIN H9 IOSTANDARD LVDS_25 } [get_ports { CLK_125_N }];
+set_property -dict { PACKAGE_PIN P27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_P }];
+set_property -dict { PACKAGE_PIN P28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_SATA_N }];
+set_property -dict { PACKAGE_PIN M27 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_P }];
+set_property -dict { PACKAGE_PIN M28 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_USB3_N }];
+set_property -dict { PACKAGE_PIN M31 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_P }];
+set_property -dict { PACKAGE_PIN M32 IOSTANDARD LVDS_25 } [get_ports { GTR_REF_CLK_DP_N }];
+
+## Configuración de Clocks Variables
+set_property -dict { PACKAGE_PIN AH12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_P }];
+set_property -dict { PACKAGE_PIN AJ12 IOSTANDARD DIFF_SSTL12 } [get_ports { USER_SI570_N }];
+set_property -dict { PACKAGE_PIN U10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_P }];
+set_property -dict { PACKAGE_PIN U9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_N }];
+set_property -dict { PACKAGE_PIN R10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_P }];
+set_property -dict { PACKAGE_PIN R9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK1_N }];
+set_property -dict { PACKAGE_PIN AA10 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_P }];
+set_property -dict { PACKAGE_PIN AA9 IOSTANDARD LVDS_25 } [get_ports { USER_MGT_SI570_CLOCK2_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS_25 } [get_ports { USER_SMA_MGT_CLOCK_N }];
+set_property -dict { PACKAGE_PIN W10 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_P }];
+set_property -dict { PACKAGE_PIN W9 IOSTANDARD LVDS_25 } [get_ports { HDMI_SI5324_OUT_N }];
+set_property -dict { PACKAGE_PIN U108_28 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_P }];
+set_property -dict { PACKAGE_PIN U108_29 IOSTANDARD LVDS_25 } [get_ports { SFP_SI5328_OUT_N }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }]; # Pin 61 - LED_2 - actividad RX/TX
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }]; # Pin 62 - LED_1 - 100BASE-T link
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }]; # Pin 63 - LED_0 - link establecido
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }]; # Arm trace power
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];  # Power inhibit
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }]; # PS_MODE0
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }]; # PS_MODE1
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }]; # PS_MODE2
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }]; # PS_MODE3
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }]; # GPIO[1]
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports { gpio[1] }]; # GPIO[2]
+set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { gpio[2] }]; # GPIO[3]
+set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 } [get_ports { gpio[3] }]; # GPIO[4]
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports { gpio[4] }]; # GPIO[5]
+
+## Pines para GPIO adicionales (SW13 y SW1)
+set_property -dict { PACKAGE_PIN X7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[0] }]; # GPIO adicional (SW13)
+set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[1] }]; # Main power switch (SW1)
+
+********************************************************************************************************************************************
+## camera_module
+
+module camera_module (
+    input wire clk,                 // Reloj de sistema
+    input wire [15:0] cam_data_in,  // Datos de entrada de la cámara (suponiendo 16 bits para datos térmicos)
+    output wire [15:0] cam_data_out,// Datos procesados de salida
+    input wire cam_clk,             // Reloj de la cámara
+    input wire cam_sync,            // Sincronización de la cámara
+    input wire [15:0] pos_x,        // Posición en eje x
+    input wire [15:0] pos_y,        // Posición en eje y
+    input wire [15:0] pos_z         // Posición en eje z
+);
+
+// Registro para almacenar datos de la cámara
+reg [15:0] data_buffer;
+
+// Procesamiento de datos de la cámara
+always @(posedge cam_clk) begin
+    if (cam_sync) begin
+        // Procesa los datos térmicos aquí
+        // Por ejemplo, adaptación según la posición o aplicar filtros
+        data_buffer <= cam_data_in; // Aquí podrías aplicar operaciones más complejas
+    end
+end
+
+assign cam_data_out = data_buffer;
+
+endmodule
+
+************************************************************************************************************************************************
+
+hdmi_module
+
+module hdmi_module (
+    input wire pix_clk,             // Reloj de píxel para HDMI
+    input wire [23:0] video_data,   // Datos de video RGB (8 bits por canal)
+    output wire tmds_clk_p,         // Señal TMDS de reloj positiva
+    output wire tmds_clk_n,         // Señal TMDS de reloj negativa
+    output wire [2:0] tmds_data_p,  // Señales TMDS de datos positivas
+    output wire [2:0] tmds_data_n   // Señales TMDS de datos negativas
+);
+
+// Aquí implementarías la codificación TMDS necesaria para HDMI
+// Esto incluye codificar los datos RGB y sincronizaciones en las señales TMDS
+
+endmodule
+
+*************************************************************************************************************************************
+
+top_module
+
+module top_module (
+    input wire clk,                 // Reloj de sistema
+    input wire cam_clk,             // Reloj de la cámara
+    input wire cam_sync,            // Sincronización de la cámara
+    input wire [15:0] cam_data_in,  // Datos de entrada de la cámara
+    input wire [15:0] pos_x,        // Posición en eje x
+    input wire [15:0] pos_y,        // Posición en eje y
+    input wire [15:0] pos_z,        // Posición en eje z
+    output wire tmds_clk_p,         // HDMI TMDS clock positive
+    output wire tmds_clk_n,         // HDMI TMDS clock negative
+    output wire [2:0] tmds_data_p,  // HDMI TMDS data positive
+    output wire [2:0] tmds_data_n   // HDMI TMDS data negative
+);
+
+wire [15:0] cam_data_processed;
+wire [23:0] video_data;
+
+camera_module cam_mod (
+    .clk(clk),
+    .cam_data_in(cam_data_in),
+    .cam_data_out(cam_data_processed),
+    .cam_clk(cam_clk),
+    .cam_sync(cam_sync),
+    .pos_x(pos_x),
+    .pos_y(pos_y),
+    .pos_z(pos_z)
+);
+
+thermal_to_video converter (
+    .clk(clk),
+    .thermal_data(cam_data_processed),
+    .rgb_data(video_data)
+);
+
+hdmi_module hdmi_mod (
+    .pix_clk(clk),           // Asumiendo que clk es adecuado como pixel clock
+    .video_data(video_data),
+    .tmds_clk_p(tmds_clk_p),
+    .tmds_clk_n(tmds_clk_n),
+    .tmds_data_p(tmds_data_p),
+    .tmds_data_n(tmds_data_n)
+);
+
+endmodule
+
+******************************************************************************************************************************************
+
+## consideraciones
+
+Consideraciones Importantes
+Codificación TMDS para HDMI: Necesitas implementar un codificador TMDS, que es esencial para transmitir video vía HDMI. Puedes utilizar núcleos IP preexistentes o implementarlo siguiendo especificaciones.
+
+La Sincronización y Timing: Asegúrate de que los relojes (clks) estén correctamente configurados y sincronizados. El HDMI requiere un reloj de píxel con una frecuencia específica dependiendo de la resolución y tasa de refresco.
+
+Procesamiento de Datos: El procesamiento de datos térmicos puede requerir uso intensivo de recursos. Asegúrate de que tu FPGA tiene suficiente capacidad.
+
+Uso de Núcleos IP: Para funciones complejas como Ethernet y HDMI, es altamente recomendable utilizar núcleos IP proporcionados por el fabricante o terceros.
+
+7. Ajustes en el Archivo de Constraints
+Integra todos los pines necesarios en tu archivo de constraints, considerando:
+
+Pines de HDMI: Asegúrate de asignar correctamente los pines para HDMI, respetando los estándares de señalización diferencial.
+
+Pines de Ethernet: Si tu FPGA tiene interfaces dedicadas para Ethernet, como GMII o RGMII, usa esos pines según el manual de tu placa.
+
+Pines de LEDs y Otros Periféricos: Asigna los pines GPIO para controlar los LEDs y otros dispositivos.
+
+8. Profundizar en los Detalles Técnicos
+Ejes de Movimiento x/y/z: Si la cámara es móvil, quizás necesites implementar controladores para motores o servos. Esto implica más módulos y posiblemente el uso de PWM (modulación por ancho de pulso). Sensores para Baterías: Para monitorear las baterías de los dispositivos de la tripulación, podrías integrar módulos ADC (convertidor analógico-digital) y sensores específicos. Esto te permitirá medir voltajes y corrientes.
+
+Radiación Cósmica: Si deseas detectar daños por radiación, podrías necesitar sensores de radiación y algoritmos específicos para procesar esos datos.
+
+9. Pasos Siguientes
+Simulación y Verificación: Antes de cargar tu diseño en el hardware, realiza simulaciones para verificar que todo funcione como esperas. Optimización de los recursos: Verificar el uso de recursos en tu FPGA para asegurarte de que no estás excediendo su capacidad.
+
+Pruebas en Hardware: Una vez que todo esté simulado, procede a probar en hardware real, comenzando por componentes individuales y luego integrándolos. 10. Recursos Adicionales Documentación de la ZCU106: Revisar los manuales y guías de usuario de tu placa para detalles específicos sobre los pines y la configuración.
+
+*******************************************************************************************************************************************************************
+
+Conexiones de los Módulos SFP0 y SFP1
+De acuerdo con la información proporcionada:
+
+SFP0:
+
+SFP0_TX_P: Pin Y4
+
+SFP0_TX_N: Pin Y3
+
+SFP0_RX_P: Pin AA2
+
+SFP0_RX_N: Pin AA1
+
+SFP0_TX_DISABLE_B: Pin AE22 (IOSTANDARD LVCMOS12)
+
+SFP1:
+
+SFP1_TX_P: Pin W6
+
+SFP1_TX_N: Pin W5
+
+SFP1_RX_P: Pin W2
+
+SFP1_RX_N: Pin W1
+
+SFP1_TX_DISABLE_B: Pin AF20 (IOSTANDARD LVCMOS12)
+
+***********************************************************************************************************************************************************
+Los pines de transceptores MGT suelen manejarse sin especificar un IOSTANDARD, ya que están controlados por el propio transceptor. Asegúrate de configurar correctamente los transceptores en tu diseño.
+
+8. Integración con las Restricciones Existentes
+Puedes integrar estas nuevas configuraciones en tu archivo de constraints existente, añadiendo las secciones de Conexiones de Audio AES3 y Conexiones de los Módulos SFP al archivo. Esto te permitirá ampliar las capacidades de tu diseño para incluir audio profesional y comunicaciones de alta velocidad.
+
+9. Importancia de Incluir Estos Componentes
+Audio AES3: Si planeas manejar audio digital profesional, incluir la interfaz AES3 es esencial para una comunicación de audio fiable y de alta calidad.
+
+Módulos SFP: Estos módulos permiten conexiones de datos de alta velocidad, lo que es crucial para aplicaciones en redes y transmisión de datos en tiempo real.
+
+10. Consideraciones Adicionales
+Compatibilidad de I/O: Asegúrate de que los estándares de I/O coincidan con los de los dispositivos conectados para evitar daños o mal funcionamiento.
+
+Requisitos de Temporización: Interfaces como HDMI, Ethernet y SFP tienen requisitos estrictos de temporización. Verifica que tu diseño cumpla con estos requisitos.
+
+Integridad de Señal: Al trabajar con señales de alta velocidad, es importante considerar las mejores prácticas para mantener la integridad de la señal, como el enrutamiento adecuado y el uso de pares diferenciales.
+
+11. Archivo de Constraints Completo
+Incluye todas las configuraciones mencionadas anteriormente en tu archivo de constraints para tener un diseño integral que abarca relojes, HDMI, Ethernet, switches, audio AES3 y módulos SFP.
+
+***********************************************************************************************************************************************************************
+
+## integración
+
+module top_module (
+    input wire clk,                 // Reloj de sistema
+    input wire cam_clk,             // Reloj de la cámara
+    input wire cam_sync,            // Sincronización de la cámara
+    input wire [15:0] cam_data_in,  // Datos de entrada de la cámara
+    output wire [15:0] cam_data_out, // Datos de salida de la cámara
+    input wire [15:0] pos_x,        // Posición en eje x
+    input wire [15:0] pos_y,        // Posición en eje y
+    input wire [15:0] pos_z,        // Posición en eje z
+    output wire tmds_clk_p,         // HDMI TMDS clock positive
+    output wire tmds_clk_n,         // HDMI TMDS clock negative
+    output wire [2:0] tmds_data_p,  // HDMI TMDS data positive
+    output wire [2:0] tmds_data_n   // HDMI TMDS data negative
+);
+
+wire [15:0] cam_data_processed;
+wire [23:0] video_data;
+wire [9:0] tmds_encoded;
+
+// Módulo de cámara
+camera_module cam_mod (
+    .clk(clk),
+    .cam_data_in(cam_data_in),
+    .cam_data_out(cam_data_processed),
+    .cam_clk(cam_clk),
+    .cam_sync(cam_sync),
+    .pos_x(pos_x),
+    .pos_y(pos_y),
+    .pos_z(pos_z)
+);
+
+// Conversión de datos térmicos a formato de video
+thermal_to_video converter (
+    .clk(clk),
+    .thermal_data(cam_data_processed),
+    .rgb_data(video_data)
+);
+
+// Codificación TMDS para HDMI
+tmds_encoder tmds_enc (
+    .clk(clk),
+    .video_data(video_data[7:0]),  // Un canal, puedes adaptar para varios canales
+    .video_ctrl(1'b0),  // Ejemplo: sin señal de control
+    .tmds_data(tmds_encoded)
+);
+
+// Módulo HDMI para transmitir los datos codificados
+hdmi_module hdmi_mod (
+    .pix_clk(clk),           // Asumiendo que clk es adecuado como pixel clock
+    .video_data(video_data),
+    .tmds_clk_p(tmds_clk_p),
+    .tmds_clk_n(tmds_clk_n),
+    .tmds_data_p(tmds_data_p),
+    .tmds_data_n(tmds_data_n)
+);
+
+endmodule
+
+***********************************************************************************************************************************
+## Constraints adaptar los pines
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## Configuración de HDMI
+set_property -dict { PACKAGE_PIN AN6 IOSTANDARD LVDS } [get_ports { HDMI_TX0_P }];
+set_property -dict { PACKAGE_PIN AN5 IOSTANDARD LVDS } [get_ports { HDMI_TX0_N }];
+set_property -dict { PACKAGE_PIN AM4 IOSTANDARD LVDS } [get_ports { HDMI_TX1_P }];
+set_property -dict { PACKAGE_PIN AM3 IOSTANDARD LVDS } [get_ports { HDMI_TX1_N }];
+set_property -dict { PACKAGE_PIN AL6 IOSTANDARD LVDS } [get_ports { HDMI_TX2_P }];
+set_property -dict { PACKAGE_PIN AL5 IOSTANDARD LVDS } [get_ports { HDMI_TX2_N }];
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_P }];
+set_property -dict { PACKAGE_PIN F21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_N }];
+set_property -dict { PACKAGE_PIN N8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SCL }];
+set_property -dict { PACKAGE_PIN N9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SDA }];
+set_property -dict { PACKAGE_PIN N11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_EN }];
+set_property -dict { PACKAGE_PIN M12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_CEC }];
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_HPD }];
+
+## Conexiones SFP0 y SFP1
+set_property PACKAGE_PIN Y4 [get_ports { SFP0_TX_P }];
+set_property PACKAGE_PIN Y3 [get_ports { SFP0_TX_N }];
+set_property PACKAGE_PIN AA2 [get_ports { SFP0_RX_P }];
+set_property PACKAGE_PIN AA1 [get_ports { SFP0_RX_N }];
+set_property -dict { PACKAGE_PIN AE22 IOSTANDARD LVCMOS12 } [get_ports { SFP0_TX_DISABLE_B }];
+
+set_property PACKAGE_PIN W6 [get_ports { SFP1_TX_P }];
+set_property PACKAGE_PIN W5 [get_ports { SFP1_TX_N }];
+set_property PACKAGE_PIN W2 [get_ports { SFP1_RX_P }];
+set_property PACKAGE_PIN W1 [get_ports { SFP1_RX_N }];
+set_property -dict { PACKAGE_PIN AF20 IOSTANDARD LVCMOS12 } [get_ports { SFP1_TX_DISABLE_B }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AG15 IOSTANDARD LVCMOS33 } [get_ports { LED_2 }];
+set_property -dict { PACKAGE_PIN AH17 IOSTANDARD LVCMOS33 } [get_ports { LED_1 }];
+set_property -dict { PACKAGE_PIN AH16 IOSTANDARD LVCMOS33 } [get_ports { LED_0 }];
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }];
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 }
+
+***********************************************************************************************************************************
+## Configuraciones HDMI
+
+## HDMI Connections
+set_property -dict { PACKAGE_PIN AN6 IOSTANDARD LVDS } [get_ports { HDMI_TX0_P }];
+set_property -dict { PACKAGE_PIN AN5 IOSTANDARD LVDS } [get_ports { HDMI_TX0_N }];
+set_property -dict { PACKAGE_PIN AM4 IOSTANDARD LVDS } [get_ports { HDMI_TX1_P }];
+set_property -dict { PACKAGE_PIN AM3 IOSTANDARD LVDS } [get_ports { HDMI_TX1_N }];
+set_property -dict { PACKAGE_PIN AL6 IOSTANDARD LVDS } [get_ports { HDMI_TX2_P }];
+set_property -dict { PACKAGE_PIN AL5 IOSTANDARD LVDS } [get_ports { HDMI_TX2_N }];
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_P }];
+set_property -dict { PACKAGE_PIN F21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_N }];
+set_property -dict { PACKAGE_PIN N8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SCL }];
+set_property -dict { PACKAGE_PIN N9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SDA }];
+set_property -dict { PACKAGE_PIN N11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_EN }];
+set_property -dict { PACKAGE_PIN M12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_CEC }];
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_HPD }];
+
+## HDMI Additional Connections
+set_property -dict { PACKAGE_PIN G8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_LOL }];
+set_property -dict { PACKAGE_PIN H8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_RST }];
+set_property -dict { PACKAGE_PIN G14 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_P }];
+set_property -dict { PACKAGE_PIN F13 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_N }];
+
+## HDMI Input (Rx)
+set_property -dict { PACKAGE_PIN AP4 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_P }];
+set_property -dict { PACKAGE_PIN AP3 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_N }];
+set_property -dict { PACKAGE_PIN AN2 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_P }];
+set_property -dict { PACKAGE_PIN AN1 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_N }];
+set_property -dict { PACKAGE_PIN AL2 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_P }];
+set_property -dict { PACKAGE_PIN AL1 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_N }];
+set_property -dict { PACKAGE_PIN AC10 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_P }];
+set_property -dict { PACKAGE_PIN AC9 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_N }];
+set_property -dict { PACKAGE_PIN M8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_PWR_DET }];
+set_property -dict { PACKAGE_PIN M10 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_HPD }];
+set_property -dict { PACKAGE_PIN N12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SCL }];
+set_property -dict { PACKAGE_PIN P12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SDA }];
+set_property -dict { PACKAGE_PIN M9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SCL }];
+set_property -dict { PACKAGE_PIN M11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SDA }];
+
+**********************************************************************************************************************************************
+## Conexiones SFP0 y SFP1
+
+## Conexiones SFP0
+set_property PACKAGE_PIN Y4 [get_ports { SFP0_TX_P }];
+set_property PACKAGE_PIN Y3 [get_ports { SFP0_TX_N }];
+set_property PACKAGE_PIN AA2 [get_ports { SFP0_RX_P }];
+set_property PACKAGE_PIN AA1 [get_ports { SFP0_RX_N }];
+set_property -dict { PACKAGE_PIN AE22 IOSTANDARD LVCMOS12 } [get_ports { SFP0_TX_DISABLE_B }];
+
+## Conexiones SFP1
+set_property PACKAGE_PIN W6 [get_ports { SFP1_TX_P }];
+set_property PACKAGE_PIN W5 [get_ports { SFP1_TX_N }];
+set_property PACKAGE_PIN W2 [get_ports { SFP1_RX_P }];
+set_property PACKAGE_PIN W1 [get_ports { SFP1_RX_N }];
+set_property -dict { PACKAGE_PIN AF20 IOSTANDARD LVCMOS12 } [get_ports { SFP1_TX_DISABLE_B }];
+
+************************************************************************************************************************************************
+
+## Pines para switches y GPIO
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }];
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }];
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }];
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }];
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }];
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }];
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports { gpio[1] }];
+set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { gpio[2] }];
+set_property -dict { PACKAGE_PIN Y8 IOSTANDARD LVCMOS33 } [get_ports { gpio[3] }];
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports { gpio[4] }];
+
+## Pines para GPIO adicionales (SW13 y SW1)
+set_property -dict { PACKAGE_PIN X7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[0] }];
+set_property -dict { PACKAGE_PIN Y7 IOSTANDARD LVCMOS33 } [get_ports { gpio_extra[1] }];
+
+***************************************************************************************************************************************
+
+## Decodificador tmds:
+
+module tmds_encoder (
+    input wire clk,              // Reloj de entrada
+    input wire [7:0] video_data, // Datos de video (un canal)
+    input wire video_ctrl,       // Señales de control de video (HSYNC, VSYNC, DE)
+    output reg [9:0] tmds_data   // Datos TMDS codificados
+);
+
+// Lógica para codificar datos TMDS
+always @(posedge clk) begin
+    // Implementación de la codificación TMDS
+    // Aquí debes aplicar las especificaciones de TMDS
+end
+
+endmodule
+
+************************************************************************************************************************************************
+
+EHDC Components Overview
+Power Control: Allows operator control to reset power to components in the event of a detected Single Event Upset (SEU) and controls standby mode (camera & encoder turned off).
+
+Status Telemetry: Monitors temperature, pressure, and currents.
+
+Watchdog Timer: Ensures system reliability by resetting the system in case of a malfunction.
+
+Control Camera Zoom Lens Function: Manages the zoom lens of the camera.
+
+Video Encoder: Uses the AVN443HD Encoder from Visionary Solutions Incorporated (VSI), which provides HD H.264 encoding with a bit rate range of 5-20 Mbps, nominally set to 8 Mbps.
+
+Power Supply: The primary power supply is 120 VDC, which is converted to 24 VDC. A secondary board provides separate power supplies for each component1.
+
+Heaters: Thermostat-controlled heaters are used to maintain optimal operating temperatures.
+
+Compatibility with ISS
+Power Sharing: The EHDC shares power with the Luminaire heater power, utilizing 120 VDC directly from the input power.
+
+Control and Communication: The EHDC is controlled from the Mission Control Center (MCC) and uses Commercial Off-the-Shelf (COTS) hardware.
+
+Installation: The EHDC can be installed either during an Internal Spacewalk (IVA) or an Extravehicular Activity (EVA).
+
+Video Output: Provides standard HD video (720P60) and uses H.264 compression with MPEG2 transport stream.
+
+Wireless Communication: Conforms to EWC wireless Ethernet-based communications (802.11n, 5.2 GHz) and is WiFi compatible through the ISS Joint Station LAN (JSL)
+
+**********************************************************************************************************************************************************
+
+## Modulo para EHDC
+
+module ehdc_module (
+    input wire clk,               // Reloj de sistema
+    input wire reset,             // Reset del sistema
+    input wire [15:0] cam_data_in,// Datos de entrada de la cámara
+    input wire cam_clk,           // Reloj de la cámara
+    input wire cam_sync,          // Sincronización de la cámara
+    output wire [15:0] cam_data_out, // Datos procesados de salida
+    input wire [15:0] pos_x,      // Posición en eje x
+    input wire [15:0] pos_y,      // Posición en eje y
+    input wire [15:0] pos_z,      // Posición en eje z
+    output wire tmds_clk_p,       // HDMI TMDS clock positive
+    output wire tmds_clk_n,       // HDMI TMDS clock negative
+    output wire [2:0] tmds_data_p,// HDMI TMDS data positive
+    output wire [2:0] tmds_data_n,// HDMI TMDS data negative
+    input wire temp_sensor,       // Sensor de temperatura
+    input wire press_sensor,      // Sensor de presión
+    input wire current_sensor,    // Sensor de corriente
+    output wire heater_control,   // Control del calentador
+    output wire watchdog_reset,   // Señal de reset del watchdog
+    output wire [7:0] status_leds,// LEDs de estado
+    input wire zoom_control,      // Control del zoom de la cámara
+    input wire power_control      // Control de alimentación
+);
+
+// Lógica de control de alimentación
+reg power_state;
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        power_state <= 0;
+    else if (power_control)
+        power_state <= ~power_state;
+end
+
+// Lógica de telemetría de estado
+reg [15:0] temperature, pressure, current;
+always @(posedge clk) begin
+    temperature <= temp_sensor;
+    pressure <= press_sensor;
+    current <= current_sensor;
+end
+
+// Lógica del watchdog timer
+reg [31:0] watchdog_counter;
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        watchdog_counter <= 0;
+    else
+        watchdog_counter <= watchdog_counter + 1;
+end
+
+assign watchdog_reset = (watchdog_counter == 32'hFFFFFFFF);
+
+// Control del zoom de la cámara
+reg [15:0] zoom_level;
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        zoom_level <= 0;
+    else if (zoom_control)
+        zoom_level <= zoom_level + 1;
+end
+
+// Control del calentador
+assign heater_control = (temperature < 16'd300); // Ejemplo: encender si temp < 300
+
+// Módulo de cámara
+camera_module cam_mod (
+    .clk(clk),
+    .cam_data_in(cam_data_in),
+    .cam_data_out(cam_data_processed),
+    .cam_clk(cam_clk),
+    .cam_sync(cam_sync),
+    .pos_x(pos_x),
+    .pos_y(pos_y),
+    .pos_z(pos_z)
+);
+
+// Conversión de datos térmicos a formato de video
+thermal_to_video converter (
+    .clk(clk),
+    .thermal_data(cam_data_processed),
+    .rgb_data(video_data)
+);
+
+// Codificación TMDS para HDMI
+tmds_encoder tmds_enc (
+    .clk(clk),
+    .video_data(video_data[7:0]),  // Un canal, puedes adaptar para varios canales
+    .video_ctrl(1'b0),  // Ejemplo: sin señal de control
+    .tmds_data(tmds_encoded)
+);
+
+// Módulo HDMI para transmitir los datos codificados
+hdmi_module hdmi_mod (
+    .pix_clk(clk),           // Asumiendo que clk es adecuado como pixel clock
+    .video_data(video_data),
+    .tmds_clk_p(tmds_clk_p),
+    .tmds_clk_n(tmds_clk_n),
+    .tmds_data_p(tmds_data_p),
+    .tmds_data_n(tmds_data_n)
+);
+
+// LEDs de estado
+assign status_leds = {power_state, temperature[7:0]};
+
+endmodule
+
+********************************************************************************************************************************************************
+
+## constraints no correcto LEDS problematicas
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## Configuración de HDMI
+set_property -dict { PACKAGE_PIN AN6 IOSTANDARD LVDS } [get_ports { HDMI_TX0_P }];
+set_property -dict { PACKAGE_PIN AN5 IOSTANDARD LVDS } [get_ports { HDMI_TX0_N }];
+set_property -dict { PACKAGE_PIN AM4 IOSTANDARD LVDS } [get_ports { HDMI_TX1_P }];
+set_property -dict { PACKAGE_PIN AM3 IOSTANDARD LVDS } [get_ports { HDMI_TX1_N }];
+set_property -dict { PACKAGE_PIN AL6 IOSTANDARD LVDS } [get_ports { HDMI_TX2_P }];
+set_property -dict { PACKAGE_PIN AL5 IOSTANDARD LVDS } [get_ports { HDMI_TX2_N }];
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_P }];
+set_property -dict { PACKAGE_PIN F21 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_LVDS_OUT_N }];
+set_property -dict { PACKAGE_PIN N8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SCL }];
+set_property -dict { PACKAGE_PIN N9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SDA }];
+set_property -dict { PACKAGE_PIN N11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_EN }];
+set_property -dict { PACKAGE_PIN M12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_CEC }];
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_HPD }];
+
+## HDMI Additional Connections
+set_property -dict { PACKAGE_PIN G8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_LOL }];
+set_property -dict { PACKAGE_PIN H8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_RST }];
+set_property -dict { PACKAGE_PIN G14 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_P }];
+set_property -dict { PACKAGE_PIN F13 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_N }];
+
+## HDMI Input (Rx)
+set_property -dict { PACKAGE_PIN AP4 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_P }];
+set_property -dict { PACKAGE_PIN AP3 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_N }];
+set_property -dict { PACKAGE_PIN AN2 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_P }];
+set_property -dict { PACKAGE_PIN AN1 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_N }];
+set_property -dict { PACKAGE_PIN AL2 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_P }];
+set_property -dict { PACKAGE_PIN AL1 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_N }];
+set_property -dict { PACKAGE_PIN AC10 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_P }];
+set_property -dict { PACKAGE_PIN AC9 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_N }];
+set_property -dict { PACKAGE_PIN M8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_PWR_DET }];
+set_property -dict { PACKAGE_PIN M10 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_HPD }];
+set_property -dict { PACKAGE_PIN N12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SCL }];
+set_property -dict { PACKAGE_PIN P12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SDA }];
+set_property -dict { PACKAGE_PIN M9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SCL }];
+set_property -dict { PACKAGE_PIN M11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SDA }];
+
+## Conexiones SFP0 y SFP1
+set_property PACKAGE_PIN Y4 [get_ports { SFP0_TX_P }];
+set_property PACKAGE_PIN Y3 [get_ports { SFP0_TX_N }];
+set_property PACKAGE_PIN AA2 [get_ports { SFP0_RX_P }];
+set_property PACKAGE_PIN AA1 [get_ports { SFP0_RX_N }];
+set_property -dict { PACKAGE_PIN AE22 IOSTANDARD LVCMOS12 } [get_ports { SFP0_TX_DISABLE_B }];
+
+set_property PACKAGE_PIN W6 [get_ports { SFP1_TX_P }];
+set_property PACKAGE_PIN W5
+
+**************************************************************************************************************************************
+
+## Conexiones de audio
+
+## Conexiones de Audio AES3
+
+# AES_IN
+set_property -dict { PACKAGE_PIN G7 IOSTANDARD LVCMOS33 } [get_ports { AES_IN }];
+
+# AES_OUT_P y AES_OUT_N
+set_property -dict { PACKAGE_PIN AE13 IOSTANDARD LVDS_25 } [get_ports { AES_OUT_P }];
+set_property -dict { PACKAGE_PIN AF13 IOSTANDARD LVDS_25 } [get_ports { AES_OUT_N }];
+
+*********************************************************************************************************************************************
+
+module ethernet_led_interface (
+    input wire clk,         // Reloj de sistema
+    input wire rst,         // Reset de sistema
+    input wire LED_2,       // Actividad RX/TX
+    input wire LED_1,       // 100BASE-T link
+    input wire LED_0,       // Link establecido
+    input wire a,           // Señal adicional a
+    input wire b,           // Señal adicional b
+    output reg [2:0] led_status, // Estado de los LEDs
+    output wire yo,         // Salida yo
+    output wire yl          // Salida yl
+);
+
+// Declaración de estados simbólicos
+localparam [1:0] 
+    s0 = 2'b00,
+    s1 = 2'b01,
+    s2 = 2'b10;
+
+// Declaración de señales
+reg [1:0] state_reg, state_next;
+
+// Registro de estado
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        state_reg <= s0;
+        led_status <= 3'b000; // Apaga todos los LEDs en reset
+    end else begin
+        state_reg <= state_next;
+        // Lógica de LEDs basada en estado
+        led_status[0] <= (state_reg == s0) ? LED_0 : 0;
+        led_status[1] <= (state_reg == s1) ? LED_1 : 0;
+        led_status[2] <= (state_reg == s2) ? LED_2 : 0;
+    end
+end
+
+// Lógica del siguiente estado
+always @* begin
+    state_next = state_reg; // Valor por defecto
+    case (state_reg)
+        s0: if (a) begin
+                if (b) state_next = s2;
+                else state_next = s1;
+            end
+        s1: if (a) state_next = s0;
+            else state_next = s1;
+        s2: state_next = s0;
+        default: state_next = s0;
+    endcase
+end
+
+// Lógica de salida Moore
+assign yl = (state_reg == s0) || (state_reg == s1);
+
+// Lógica de salida Mealy
+assign yo = (state_reg == s0) && a && b;
+
+endmodule
+
+********************************************************************************************************************************************************
+
+## Archivo constraints el correcto
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## HDMI Connections
+set_property -dict { PACKAGE_PIN AN6 IOSTANDARD LVDS } [get_ports { tmds_data_p[0] }];
+set_property -dict { PACKAGE_PIN AN5 IOSTANDARD LVDS } [get_ports { tmds_data_n[0] }];
+set_property -dict { PACKAGE_PIN AM4 IOSTANDARD LVDS } [get_ports { tmds_data_p[1] }];
+set_property -dict { PACKAGE_PIN AM3 IOSTANDARD LVDS } [get_ports { tmds_data_n[1] }];
+set_property -dict { PACKAGE_PIN AL6 IOSTANDARD LVDS } [get_ports { tmds_data_p[2] }];
+set_property -dict { PACKAGE_PIN AL5 IOSTANDARD LVDS } [get_ports { tmds_data_n[2] }];
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVCMOS33 } [get_ports { tmds_clk_p }];
+set_property -dict { PACKAGE_PIN F21 IOSTANDARD LVCMOS33 } [get_ports { tmds_clk_n }];
+set_property -dict { PACKAGE_PIN N8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SCL }];
+set_property -dict { PACKAGE_PIN N9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_SRC_SDA }];
+set_property -dict { PACKAGE_PIN N11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_EN }];
+set_property -dict { PACKAGE_PIN M12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_CEC }];
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports { HDMI_TX_HPD }];
+
+## HDMI Additional Connections
+set_property -dict { PACKAGE_PIN G8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_LOL }];
+set_property -dict { PACKAGE_PIN H8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_SI5324_RST }];
+set_property -dict { PACKAGE_PIN G14 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_P }];
+set_property -dict { PACKAGE_PIN F13 IOSTANDARD LVDS } [get_ports { HDMI_REC_CLOCK_C_N }];
+set_property -dict { PACKAGE_PIN AD8 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_P }];
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVDS } [get_ports { HDMI_SI5324_OUT_C_N }];
+
+## HDMI Input (Rx)
+set_property -dict { PACKAGE_PIN AP4 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_P }];
+set_property -dict { PACKAGE_PIN AP3 IOSTANDARD LVDS } [get_ports { HDMI_RX0_C_N }];
+set_property -dict { PACKAGE_PIN AN2 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_P }];
+set_property -dict { PACKAGE_PIN AN1 IOSTANDARD LVDS } [get_ports { HDMI_RX1_C_N }];
+set_property -dict { PACKAGE_PIN AL2 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_P }];
+set_property -dict { PACKAGE_PIN AL1 IOSTANDARD LVDS } [get_ports { HDMI_RX2_C_N }];
+set_property -dict { PACKAGE_PIN AC10 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_P }];
+set_property -dict { PACKAGE_PIN AC9 IOSTANDARD LVDS } [get_ports { HDMI_RX_CLK_C_N }];
+set_property -dict { PACKAGE_PIN M8 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_PWR_DET }];
+set_property -dict { PACKAGE_PIN M10 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_HPD }];
+set_property -dict { PACKAGE_PIN N12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SCL }];
+set_property -dict { PACKAGE_PIN P12 IOSTANDARD LVCMOS33 } [get_ports { HDMI_CTL_SDA }];
+set_property -dict { PACKAGE_PIN M9 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SCL }];
+set_property -dict { PACKAGE_PIN M11 IOSTANDARD LVCMOS33 } [get_ports { HDMI_RX_SNK_SDA }];
+
+## Conexiones SFP0 y SFP1
+set_property PACKAGE_PIN Y4 [get_ports { SFP0_TX_P }];
+set_property PACKAGE_PIN Y3 [get_ports { SFP0_TX_N }];
+set_property PACKAGE_PIN AA2 [get_ports { SFP0_RX_P }];
+set_property PACKAGE_PIN AA1 [get_ports { SFP0_RX_N }];
+set_property -dict { PACKAGE_PIN AE22 IOSTANDARD LVCMOS12 } [get_ports { SFP0_TX_DISABLE_B }];
+
+set_property PACKAGE_PIN W6 [get_ports { SFP1_TX_P }];
+set_property PACKAGE_PIN W5 [get_ports { SFP1_TX_N }];
+set_property PACKAGE_PIN W2 [get_ports { SFP1_RX_P }];
+set_property PACKAGE_PIN W1 [get_ports { SFP1_RX_N }];
+set_property -dict { PACKAGE_PIN AF20 IOSTANDARD LVCMOS12 } [get_ports { SFP1_TX_DISABLE_B }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AL11 IOSTANDARD LVCMOS12 } [get_ports { LED_0 }];
+set_property -dict { PACKAGE_PIN AL13 IOSTANDARD LVCMOS12 } [get_ports { LED_1 }];
+set_property -dict { PACKAGE_PIN AK13 IOSTANDARD LVCMOS12 } [get_ports { LED_2 }];
+
+## Pines para Switches
+set_property -dict { PACKAGE_PIN J38 IOSTANDARD LVCMOS33 } [get_ports { arm_trace_power }];
+set_property -dict { PACKAGE_PIN J153 IOSTANDARD LVCMOS33 } [get_ports { power_inhibit }];
+
+## Pines para el DIP Switch PS_MODE select (SW6)
+set_property -dict { PACKAGE_PIN P7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[0] }];
+set_property -dict { PACKAGE_PIN R7 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[1] }];
+set_property -dict { PACKAGE_PIN R8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[2] }];
+set_property -dict { PACKAGE_PIN T8 IOSTANDARD LVCMOS33 } [get_ports { ps_mode[3] }];
+
+## Pines para el DIP Switch MSP430 GPIO (SW8)
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { gpio[0] }];
+
+## Conexiones de Ethernet
+set_property -dict { PACKAGE_PIN J31 IOSTANDARD LVCMOS18 } [get_ports { MIO64_ENET_TX_CLK }];
+
+**********************************************************************************************************************************************************
+
+## Archivo constraints correcto
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN W22 IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## Conexiones de Ethernet
+set_property -dict { PACKAGE_PIN J31 IOSTANDARD LVCMOS18 } [get_ports { MIO64_ENET_TX_CLK }];
+set_property -dict { PACKAGE_PIN J32 IOSTANDARD LVCMOS18 } [get_ports { MIO65_ENET_TX_D0 }];
+set_property -dict { PACKAGE_PIN J34 IOSTANDARD LVCMOS18 } [get_ports { MIO66_ENET_TX_D1 }];
+set_property -dict { PACKAGE_PIN K28 IOSTANDARD LVCMOS18 } [get_ports { MIO67_ENET_TX_D2 }];
+set_property -dict { PACKAGE_PIN K29 IOSTANDARD LVCMOS18 } [get_ports { MIO68_ENET_TX_D3 }];
+set_property -dict { PACKAGE_PIN K30 IOSTANDARD LVCMOS18 } [get_ports { MIO69_ENET_TX_CTRL }];
+set_property -dict { PACKAGE_PIN K31 IOSTANDARD LVCMOS18 } [get_ports { MIO70_ENET_RX_CLK }];
+set_property -dict { PACKAGE_PIN K32 IOSTANDARD LVCMOS18 } [get_ports { MIO71_ENET_RX_D0 }];
+set_property -dict { PACKAGE_PIN K33 IOSTANDARD LVCMOS18 } [get_ports { MIO72_ENET_RX_D1 }];
+set_property -dict { PACKAGE_PIN K34 IOSTANDARD LVCMOS18 } [get_ports { MIO73_ENET_RX_D2 }];
+set_property -dict { PACKAGE_PIN L29 IOSTANDARD LVCMOS18 } [get_ports { MIO74_ENET_RX_D3 }];
+set_property -dict { PACKAGE_PIN L30 IOSTANDARD LVCMOS18 } [get_ports { MIO75_ENET_RX_CTRL }];
+set_property -dict { PACKAGE_PIN L33 IOSTANDARD LVCMOS18 } [get_ports { MIO76_ENET_MDC }];
+set_property -dict { PACKAGE_PIN L34 IOSTANDARD LVCMOS18 } [get_ports { MIO77_ENET_MDIO }];
+
+## Pines de los LEDs Ethernet
+set_property -dict { PACKAGE_PIN AL11 IOSTANDARD LVCMOS12 } [get_ports { LED_0 }];
+set_property -dict { PACKAGE_PIN AL13 IOSTANDARD LVCMOS12 } [get_ports { LED_1 }];
+set_property -dict { PACKAGE_PIN AK13 IOSTANDARD LVCMOS12 } [get_ports { LED_2 }];
+
+*********************************************************************************************************************************************************
+
+## Modulo para ethernet
+
+module ethernet_fsm (
+    input wire clk,           // Reloj de sistema
+    input wire reset,         // Reset de sistema
+    input wire sw,            // Señal de entrada de control
+    output reg db,            // Señal de salida
+    output reg [2:0] eth_state // Estado del FSM
+);
+
+// Declaración de estados simbólicos
+localparam [2:0] 
+    zero = 3'b000,
+    wait1_1 = 3'b001,
+    wait1_2 = 3'b010,
+    wait1_3 = 3'b011,
+    one = 3'b100,
+    wait0_1 = 3'b101,
+    wait0_2 = 3'b110,
+    wait0_3 = 3'b111;
+
+// Declaración de señales
+reg [18:0] q_reg; // Contador de 19 bits
+wire [18:0] q_next;
+wire m_tick;
+reg [2:0] state_reg, state_next;
+
+// Contador para generar tick de 10 ms
+always @(posedge clk) begin
+    q_reg <= q_next;
+end
+
+// Lógica del siguiente estado del contador
+assign q_next = q_reg + 1;
+
+// Salida del tick
+assign m_tick = (q_reg == 0) ? 1'b1 : 1'b0;
+
+// Registro de estado
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        state_reg <= zero;
+    else
+        state_reg <= state_next;
+end
+
+// Lógica del siguiente estado y lógica de salida
+always @* begin
+    state_next = state_reg; // Estado por defecto: el mismo
+    db = 1'b0; // Salida por defecto: 0
+    case (state_reg)
+        zero: begin
+            if (sw) state_next = wait1_1;
+        end
+        wait1_1: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = wait1_2;
+        end
+        wait1_2: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = wait1_3;
+        end
+        wait1_3: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = one;
+        end
+        one: begin
+            db = 1'b1;
+            if (~sw) state_next = wait0_1;
+        end
+        wait0_1: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = wait0_2;
+        end
+        wait0_2: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = wait0_3;
+        end
+        wait0_3: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = zero;
+        end
+        default: state_next = zero;
+    endcase
+end
+
+// Asignación del estado actual
+always @(posedge clk) begin
+    eth_state <= state_reg;
+end
+
+endmodule
+
+**********************************************************************************************************************************************
+
+## top_module integrado
+
+module top_module (
+    input wire clk,              // Reloj de sistema
+    input wire reset,            // Reset de sistema
+    input wire sw,               // Señal de control de entrada
+    output wire db,              // Señal de salida
+    output wire [2:0] eth_state, // Estado del FSM de Ethernet
+    output wire [2:0] led_status // Estado de los LEDs Ethernet
+);
+
+wire LED_2, LED_1, LED_0;
+
+// Instancia del módulo FSM de Ethernet
+ethernet_fsm eth_fsm (
+    .clk(clk),
+    .reset(reset),
+    .sw(sw),
+    .db(db),
+    .eth_state(eth_state)
+);
+
+// Instancia del módulo de LEDs Ethernet
+ethernet_led_interface eth_led (
+    .clk(clk),
+    .rst(reset),
+    .LED_2(LED_2),
+    .LED_1(LED_1),
+    .LED_0(LED_0),
+    .a(eth_state[0]), // Ejemplo de asignación de señales
+    .b(eth_state[1]), // Ejemplo de asignación de señales
+    .led_status(led_status),
+    .yo(),
+    .yl()
+);
+
+endmodule
+
+*************************************************************************************************************************************
+
+## FSM
+
+module ethernet_fsm (
+    input wire clk,           // Reloj de sistema
+    input wire reset,         // Reset de sistema
+    input wire sw,            // Señal de entrada de control
+    output reg db,            // Señal de salida
+    output reg [2:0] eth_state // Estado del FSM
+);
+
+// Declaración de estados simbólicos
+localparam [2:0] 
+    zero = 3'b000,
+    wait1_1 = 3'b001,
+    wait1_2 = 3'b010,
+    wait1_3 = 3'b011,
+    one = 3'b100,
+    wait0_1 = 3'b101,
+    wait0_2 = 3'b110,
+    wait0_3 = 3'b111;
+
+// Declaración de señales
+reg [18:0] q_reg; // Contador de 19 bits
+wire [18:0] q_next;
+wire m_tick;
+reg [2:0] state_reg, state_next;
+
+// Contador para generar tick de 10 ms
+always @(posedge clk) begin
+    q_reg <= q_next;
+end
+
+// Lógica del siguiente estado del contador
+assign q_next = q_reg + 1;
+
+// Salida del tick
+assign m_tick = (q_reg == 0) ? 1'b1 : 1'b0;
+
+// Registro de estado
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        state_reg <= zero;
+    else
+        state_reg <= state_next;
+end
+
+// Lógica del siguiente estado y lógica de salida
+always @* begin
+    state_next = state_reg; // Estado por defecto: el mismo
+    db = 1'b0; // Salida por defecto: 0
+    case (state_reg)
+        zero: begin
+            if (sw) state_next = wait1_1;
+        end
+        wait1_1: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = wait1_2;
+        end
+        wait1_2: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = wait1_3;
+        end
+        wait1_3: begin
+            if (~sw) state_next = zero;
+            else if (m_tick) state_next = one;
+        end
+        one: begin
+            db = 1'b1;
+            if (~sw) state_next = wait0_1;
+        end
+        wait0_1: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = wait0_2;
+        end
+        wait0_2: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = wait0_3;
+        end
+        wait0_3: begin
+            db = 1'b1;
+            if (sw) state_next = one;
+            else if (m_tick) state_next = zero;
+        end
+        default: state_next = zero;
+    endcase
+end
+
+// Asignación del estado actual
+always @(posedge clk) begin
+    eth_state <= state_reg;
+end
+
+endmodule
+
+*********************************************************************************************************************************************
+
+## Integrar el diseño/modulos
+
+module top_module (
+    input wire clk,              // Reloj de sistema
+    input wire reset,            // Reset de sistema
+    input wire sw,               // Señal de control de entrada
+    output wire db,              // Señal de salida
+    output wire [2:0] eth_state, // Estado del FSM de Ethernet
+    output wire [2:0] led_status // Estado de los LEDs Ethernet
+);
+
+wire LED_2, LED_1, LED_0;
+
+// Instancia del módulo FSM de Ethernet
+ethernet_fsm eth_fsm (
+    .clk(clk),
+    .reset(reset),
+    .sw(sw),
+    .db(db),
+    .eth_state(eth_state)
+);
+
+// Instancia del módulo de LEDs Ethernet
+ethernet_led_interface eth_led (
+    .clk(clk),
+    .rst(reset),
+    .LED_2(LED_2),
+    .LED_1(LED_1),
+    .LED_0(LED_0),
+    .a(eth_state[0]), // Ejemplo de asignación de señales
+    .b(eth_state[1]), // Ejemplo de asignación de señales
+    .led_status(led_status),
+    .yo(),
+    .yl()
+);
+
+endmodule
+
+**********************************************************************************************************************************************************
+
