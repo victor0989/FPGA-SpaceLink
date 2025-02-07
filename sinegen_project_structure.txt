@@ -1,0 +1,169 @@
+============================================================
+Project: Sinegen for ZCU106 UltraScale
+============================================================
+
+This file summarizes the necessary steps to:
+  - Create an RTL project in Vivado for the ZCU106 board.
+  - Include the Verilog files (sinegen and sinegen_demo).
+  - Configure the constraints file (XDC) for the board.
+  - Synthesize and program the FPGA.
+
+------------------------------------------------------------
+1. Creating the Project in Vivado
+------------------------------------------------------------
+a) Open the Vivado IDE.
+b) Select "Create Project" and configure the following:
+   - Project Name: "sinegen_proj"
+   - Project Type: RTL Project (without simulation, if not required)
+   - Add the following source files:
+       • sinegen.v
+       • sinegen_demo.v
+   - Add the constraints file: "ZCU106.xdc"
+   - Select the ZCU106 UltraScale board (or manually define the part)
+c) Finish the wizard and open the project.
+
+------------------------------------------------------------
+2. Verilog Code: sinegen.v
+------------------------------------------------------------
+This module generates a sinusoidal wave using a phase accumulator and a lookup table (LUT).
+
+`timescale 1ns / 1ps
+module sinegen(
+    input             clk,    // System clock
+    input             reset,  // Asynchronous reset
+    input      [1:0]  sel,    // Frequency selector
+    output reg signed [19:0] sine  // Sinusoidal wave output (20-bit signed)
+);
+
+    // Phase accumulator (16 bits)
+    reg [15:0] phase;
+    // Phase increment (determines the output frequency)
+    reg [15:0] phase_inc;
+
+    // Select the phase increment based on the 'sel' signal
+    always @(*) begin
+        case(sel)
+            2'b00: phase_inc = 16'd100;  // Low frequency
+            2'b01: phase_inc = 16'd200;
+            2'b10: phase_inc = 16'd400;
+            2'b11: phase_inc = 16'd800;  // High frequency
+            default: phase_inc = 16'd100;
+        endcase
+    end
+
+    // Update the phase accumulator
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            phase <= 16'd0;
+        else
+            phase <= phase + phase_inc;
+    end
+
+    // Generate the sinusoidal wave using a LUT
+    // Using the 4 MSB of the accumulator to index the LUT (16 samples per cycle)
+    always @(*) begin
+        case(phase[15:12])
+            4'd0:  sine = 20'sd0;
+            4'd1:  sine = 20'sd200000;
+            4'd2:  sine = 20'sd370000;
+            4'd3:  sine = 20'sd484000;
+            4'd4:  sine = 20'sd524287;  // Maximum value (approx. 2^19 - 1)
+            4'd5:  sine = 20'sd484000;
+            4'd6:  sine = 20'sd370000;
+            4'd7:  sine = 20'sd200000;
+            4'd8:  sine = 20'sd0;
+            4'd9:  sine = -20'sd200000;
+            4'd10: sine = -20'sd370000;
+            4'd11: sine = -20'sd484000;
+            4'd12: sine = -20'sd524287;
+            4'd13: sine = -20'sd484000;
+            4'd14: sine = -20'sd370000;
+            4'd15: sine = -20'sd200000;
+            default: sine = 20'sd0;
+        endcase
+    end
+
+endmodule
+
+------------------------------------------------------------
+3. Verilog Code: sinegen_demo.v
+------------------------------------------------------------
+This top module instantiates the sine generator and an ILA block for debugging.
+(Note: The ILA IP must be configured in Vivado to generate the module "ila_0".)
+
+`timescale 1ns / 1ps
+// Attributes so that the tools mark the signals for debugging
+(* mark_debug = "true" *) wire GPIO_BUTTONS_db;
+(* mark_debug = "true" *) wire GPIO_BUTTONS_dly;
+(* mark_debug = "true" *) wire GPIO_BUTTONS_re;
+
+module sinegen_demo(
+    input             clk,         // System clock
+    input             reset,       // Reset
+    input      [1:0]  sineSel,     // Frequency selector for sinegen
+    input      [3:0]  GPIO_BUTTONS,// Debug buttons
+    output signed [19:0] sine     // Sinusoidal wave output
+);
+
+    // Instantiation of the sine generator
+    sinegen u_sinegen (
+        .clk(clk),
+        .reset(reset),
+        .sel(sineSel),
+        .sine(sine)
+    );
+
+    // Instantiation of the ILA for debugging (make sure to configure the ILA IP in Vivado)
+    ila_0 u_ila (
+        .CLK    (clk),
+        .PROBE0 (sineSel),
+        .PROBE1 (sine),
+        .PROBE2 (GPIO_BUTTONS_db),
+        .PROBE3 (GPIO_BUTTONS_re),
+        .PROBE4 (GPIO_BUTTONS_dly),
+        .PROBE5 (GPIO_BUTTONS)
+    );
+
+endmodule
+
+------------------------------------------------------------
+4. Constraints File for ZCU106: ZCU106.xdc
+------------------------------------------------------------
+Basic example (adjust the pins according to your board and requirements):
+
+## System clock configuration
+set_property -dict { PACKAGE_PIN <PIN_CLK> IOSTANDARD LVCMOS33 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## Pin assignment for the frequency selector (sineSel)
+set_property -dict { PACKAGE_PIN <PIN_S0> IOSTANDARD LVCMOS33 } [get_ports { sineSel[0] }];
+set_property -dict { PACKAGE_PIN <PIN_S1> IOSTANDARD LVCMOS33 } [get_ports { sineSel[1] }];
+
+## Pin assignment for the debug buttons (GPIO_BUTTONS)
+set_property -dict { PACKAGE_PIN <PIN_BTN0> IOSTANDARD LVCMOS33 } [get_ports { GPIO_BUTTONS[0] }];
+set_property -dict { PACKAGE_PIN <PIN_BTN1> IOSTANDARD LVCMOS33 } [get_ports { GPIO_BUTTONS[1] }];
+set_property -dict { PACKAGE_PIN <PIN_BTN2> IOSTANDARD LVCMOS33 } [get_ports { GPIO_BUTTONS[2] }];
+set_property -dict { PACKAGE_PIN <PIN_BTN3> IOSTANDARD LVCMOS33 } [get_ports { GPIO_BUTTONS[3] }];
+
+## (Add here the pins for other peripherals as needed)
+
+------------------------------------------------------------
+5. Synthesis, Implementation, and Programming
+------------------------------------------------------------
+a) With the project open in Vivado:
+   - Run **Run Synthesis**.
+   - Once synthesis is complete, run **Run Implementation**.
+   - Generate the bitstream (Generate Bitstream).
+   - Program the FPGA by connecting the ZCU106 board and using the hardware manager.
+
+------------------------------------------------------------
+6. Final Considerations
+------------------------------------------------------------
+- Verify that the pins assigned in the XDC file match the ZCU106 board documentation.
+- Adjust the phase increment values (phase_inc) in the sinegen module to achieve the desired frequency.
+- The ILA IP must be configured and customized in Vivado so that the marked signals are visible.
+- You can modify or extend this example according to your project’s requirements.
+
+============================================================
+End of the synthetic file for the Sinegen project on ZCU106
+============================================================
