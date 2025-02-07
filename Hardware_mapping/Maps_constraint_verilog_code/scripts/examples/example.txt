@@ -1,0 +1,17 @@
+declaración de video_data:
+Se agrega la línea
+
+verilog
+
+wire [7:0] video_data;
+para definir video_data como un bus de 8 bits. De esta forma, al conectarlo o extraer sus bits (por ejemplo, en la instanciación del tmds_encoder), no se genera el error de “cannot index an array” ya que no se trata de un array de elementos, sino de un vector.
+
+Conexión en el tmds_encoder:
+En lugar de utilizar video_data[7:0] (lo que podría interpretarse erróneamente si video_data fuera un array), se conecta directamente la señal video_data. Esto asume que video_data ya es un vector de 8 bits.
+
+Conexión en el hdmi_module:
+Se utiliza la señal tmds_encoded (salida del tmds_encoder) para transmitir los datos HDMI. Esto es consistente con el flujo de procesamiento:
+
+thermal_to_video genera video_data (8 bits).
+tmds_encoder codifica ese dato y produce tmds_encoded (por ejemplo, de 10 bits).
+hdmi_module utiliza la señal codificada para generar las salidas TMDS.
