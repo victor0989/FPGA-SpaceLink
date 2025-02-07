@@ -6,6 +6,18 @@ For additional insights into space station architecture and related challenges, 
 
 ![Nasa_telecomunications](https://github.com/victor0989/FPGA-SpaceLink/blob/main/nasa_images/antennas/locations/Captura%20de%20pantalla%202025-02-04%20124115.png)
 
+Verilog notes & Processing signals in FPGA: To define video_data as an 8-bit bus. This way, when connecting it or extracting its bits (for example, during the instantiation of the tmds_encoder), the "cannot index an array" error does not occur since it is not an array of elements but a vector.
+
+Connection in the tmds_encoder:
+Instead of using video_data[7:0] (which could be misinterpreted if video_data were an array), the video_data signal is connected directly. This assumes that video_data is already an 8-bit vector.
+
+Connection in the hdmi_module:
+The tmds_encoded signal (output from the tmds_encoder) is used to transmit the HDMI data. This is consistent with the processing flow:
+
+thermal_to_video generates video_data (8 bits).
+tmds_encoder encodes that data and produces tmds_encoded (for example, 10 bits).
+hdmi_module uses the encoded signal to generate the TMDS outputs.
+With these changes, the error is corrected and a coherent signal flow within the module is established. Also, make sure that the instantiated modules (such as camera_module, thermal_to_video, tmds_encoder, hdmi_module, disp_hex_mux, and db_fsm) are correctly defined in your project or added as sources.
 
 ---
 
