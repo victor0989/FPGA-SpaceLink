@@ -1,0 +1,153 @@
+//debounce.vhd
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity debounce is
+    Port ( clk : in STD_LOGIC;
+           btn_in : in STD_LOGIC;
+           btn_out : out STD_LOGIC;
+end debounce;
+
+arquitectura Behavioral of debounce is
+    signal btn_sync_0 : std_logic;
+    signal btn_sync_1 : std_logic;
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            btn_sync_0 <= btn_in;
+            btn_sync_1 <= btn_sync_0;
+            btn_out <= btn_sync_1;
+        end if;
+      end process;
+    end Behavioral;
+
+## fsm.vhd
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity fsm is
+    Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           state_out : out  STD_LOGIC_VECTOR (1 downto 0));
+end fsm;
+
+architecture Behavioral of fsm is
+    type state_type is (s0, s1, s2, s3);
+    signal state, next_state : state_type;
+begin
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            state <= s0;
+        elsif rising_edge(clk) then
+            state <= next_state;
+        end if;
+    end process;
+
+    process(state)
+    begin
+        case state is
+            when s0 =>
+                next_state <= s1;
+            when s1 =>
+                next_state <= s2;
+            when s2 =>
+                next_state <= s3;
+            when s3 =>
+                next_state <= s0;
+            when others =>
+                next_state <= s0;
+        end case;
+    end process;
+
+    state_out <= std_logic_vector(to_unsigned(state'pos(state), state_out'length));
+end Behavioral;
+
+## sinegen.vhd
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity sinegen is
+    Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           sel : in  STD_LOGIC_VECTOR (1 downto 0);
+           sine : out  STD_LOGIC_VECTOR (19 downto 0));
+end sinegen;
+
+architecture Behavioral of sinegen is
+    -- signal declarations
+begin
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            sine <= (others => '0');
+        elsif rising_edge(clk) then
+            -- sine generation logic based on sel
+        end if;
+    end process;
+end Behavioral;
+
+## sinegen_demo.vhd
+
+-- module sinegen_demo.vhd
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+attribute mark_debug : string;
+attribute mark_debug of GPIO_BUTTONS_db : signal is "true";
+attribute mark_debug of GPIO_BUTTONS_dly : signal is "true";
+attribute mark_debug of GPIO_BUTTONS_re : signal is "true";
+attribute mark_debug of DONT_EAT : signal is "true";
+
+entity sinegen_demo is
+    Port (
+        clk : in std_logic;
+        reset : in std_logic;
+        sel : in std_logic_vector(1 downto 0);
+        sine : out std_logic_vector(19 downto 0);
+        GPIO_BUTTONS_db : in std_logic;
+        GPIO_BUTTONS_dly : in std_logic;
+        GPIO_BUTTONS_re : in std_logic;
+        DONT_EAT : in std_logic
+    );
+end sinegen_demo;
+
+architecture Behavioral of sinegen_demo is
+
+    component sinegen
+        port (
+            clk : in std_logic;
+            reset : in std_logic;
+            sel : in std_logic_vector(1 downto 0);
+            sine : out std_logic_vector(19 downto 0)
+        );
+    end component;
+
+begin
+
+    -- Instantiate the sinegen component
+    U_SINEGEN : sinegen
+        port map (
+            clk => clk,
+            reset => reset,
+            sel => sel,
+            sine => sine
+        );
+
+    -- Add your additional logic here
+
+end Behavioral;
+

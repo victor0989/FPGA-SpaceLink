@@ -1,0 +1,23 @@
+module sinegen(
+    input           clk,
+    input           reset,
+    input    [1:0]  sel,
+    output reg signed [19:0] sine
+);
+
+   // Acumulador fase (16 bits)
+   reg [15:0] phase;
+   // incremento phase most s bit
+   reg [15:0] phase_inc;
+
+   //Lógica (frecuencia deseada para la señal)
+   always @(*) begin
+       case(sel)
+           2'b00:  phase_inc = 16'd100;
+           2'b01:  phase_inc = 16'd200;
+           2'b10:  phase_inc = 16'd400;
+           2'b11:  phase_inc = 16'd800;
+           default: phase_inc = 16'd100;
+       endcase
+   end
+

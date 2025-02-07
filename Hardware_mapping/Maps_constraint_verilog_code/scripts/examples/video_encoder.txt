@@ -1,0 +1,14 @@
+module tmds_encoder (
+    input wire clk,              // Reloj de entrada
+    input wire [7:0] video_data, // Datos de video (un canal)
+    input wire video_ctrl,       // Señales de control de video (HSYNC, VSYNC, DE)
+    output reg [9:0] tmds_data   // Datos TMDS codificados
+);
+
+// Lógica para codificar datos TMDS
+always @(posedge clk) begin
+    // Implementación de la codificación TMDS
+    // Aquí debes aplicar las especificaciones de TMDS
+end
+
+endmodule
