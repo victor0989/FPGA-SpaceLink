@@ -1,0 +1,35 @@
+## MIO signals to the differential DisplayPort AUX channel
+set_property -dict { PACKAGE_PIN L21 IOSTANDARD LVCMOS33 [ get_ports { MIO }];
+
+
+## USB 2.0 ULPI Transceiver Connections to the XCZU9EG MPSoC (34-38)
+set_property -dict { PACKAGE_PIN G23 IOSTANDARD LVCMOS33 [get_ports { STP }];
+set_property -dict { PACKAGE_PIN E23 IOSTANDARD LVCMOS33 [get_ports { DIR }];
+set_property -dict { PACKAGE_PIN F22 IOSTANDARD LVCMOS33 [get_ports { CLKOUT }];
+set_property -dict { PACKAGE_PIN B23 IOSTANDARD LVCMOS33 [get_ports { NXT }];
+set_property -dict { PACKAGE_PIN C23 IOSTANDARD LVCMOS33 [{ DATA0 }];  
+set_property -dict { PACKAGE_PIN A23 IOSTANDARD LVCMOS33 [{ DATA1 }];
+set_property -dict { PACKAGE_PIN F23 IOSTANDARD LVCMOS33 [{ DATA2 }];
+set_property -dict { PACKAGE_PIN B24 IOSTANDARD LVCMOS33 [{ DATA3 }];
+set_property -dict { PACKAGE_PIN E24 IOSTANDARD LVCMOS33 [{ DATA4 }];
+set_property -dict { PACKAGE_PIN C24 IOSTANDARD LVCMOS33 [{ DATA5 }];
+set_property -dict { PACKAGE_PIN G24 IOSTANDARD LVCMOS33 [{ DATA6 }];
+set_property -dict { PACKAGE_PIN D24 IOSTANDARD LVCMOS33 [{ DATA7 }];
+
+## SD card InterfaceSDIO signals are connected to XCZU9EG MPSoC PS bank 501
+## 1.8/bank 501
+
+##Aries Adapter Pin 1
+set_property -dict { PACKAGE_PIN C1 IOSTANDARD LVCMOS33[{ CLK_IN }]; 
+set_property -dict { PACKAGE_PIN C3 IOSTANDARD LVCMOS33[{ GND }];
+set_property -dict { PACKAGE_PIN D3 IOSTANDARD LVCMOS33[{ CD }];
+set_property -dict { PACKAGE_PIN D2 IOSTANDARDLVCMOS33[{ CMD_H }];
+set_property -dict { PACKAGE_PIN E2 IOSTANDARD LVCMOS33[{ CLK_FB }];
+set_property -dict { PACKAGE_PIN E4 IOSTANDARD LVCMOS33[{ VLDO }];
+set_property -dict { PACKAGE_PIN C4 IOSTANDARD LVCMOS33 [{V SD_REF }];
+set_property -dict { PACKAGE_PIN A3 IOSTANDARD LVCMOS33 [{ DIR_0 }];
+set_property -dict { PACKAGE_PIN A4 IOSTANDARD LVCMOS33 [{ VSUPPLY }];
+set_property -dict { PACKAGE_PIN B3 IOSTANDARD LVCMOS33 [{ VCCA }];
+
+## PS-Side: DDR4 SODIMM Socket (página 25) y
+## PL-Side: DDR4 Component Memory (página 29)
