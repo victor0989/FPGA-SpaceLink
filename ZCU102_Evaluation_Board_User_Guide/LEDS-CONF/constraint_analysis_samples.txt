@@ -1,0 +1,134 @@
+## ZCU102 XCZCU9EG_constraints
+## Clock Generation
+## The ZCU102 board provides fixed and variable clock sources for the XCZU9EG MPSoC.
+## Table 3-12 lists the source devices for each clock.
+## ZCU102 XCZU9EG MPSoC
+
+## Configuración del reloj de sistema
+set_property -dict { PACKAGE_PIN G21 IOSTANDARD LVDS_25 } [get_ports { clk }];
+create_clock -name sysclk -period 10 -waveform {0 5} [get_ports { clk }];
+
+## UART TX/RX receiver-transceiver
+set_property -dict { PACKAGE_PIN AF18 IOSTANDARD LVCMOS18 } [get_ports { TX_UART }];
+set_property -dict { PACKAGE_PIN AD18 IOSTANDARD LVCMOS18 } [get_ports { RX_UART }];
+
+## MIO signals to the differential DisplayPort AUX channel
+# Nota: Las señales MIO se configuran en el bloque IP del Zynq MPSoC y no en el archivo de restricciones (.xdc)
+
+## USB 2.0 ULPI Transceiver Connections to the XCZU9EG MPSoC (páginas 34-38)
+set_property -dict { PACKAGE_PIN G23 IOSTANDARD LVCMOS18 } [get_ports { STP }];
+set_property -dict { PACKAGE_PIN E23 IOSTANDARD LVCMOS18 } [get_ports { DIR }];
+set_property -dict { PACKAGE_PIN F22 IOSTANDARD LVCMOS18 } [get_ports { CLKOUT }];
+set_property -dict { PACKAGE_PIN B23 IOSTANDARD LVCMOS18 } [get_ports { NXT }];
+set_property -dict { PACKAGE_PIN C23 IOSTANDARD LVCMOS18 } [get_ports { DATA0 }];
+set_property -dict { PACKAGE_PIN A23 IOSTANDARD LVCMOS18 } [get_ports { DATA1 }];
+set_property -dict { PACKAGE_PIN F23 IOSTANDARD LVCMOS18 } [get_ports { DATA2 }];
+set_property -dict { PACKAGE_PIN B24 IOSTANDARD LVCMOS18 } [get_ports { DATA3 }];
+set_property -dict { PACKAGE_PIN E24 IOSTANDARD LVCMOS18 } [get_ports { DATA4 }];
+set_property -dict { PACKAGE_PIN C24 IOSTANDARD LVCMOS18 } [get_ports { DATA5 }];
+set_property -dict { PACKAGE_PIN G24 IOSTANDARD LVCMOS18 } [get_ports { DATA6 }];
+set_property -dict { PACKAGE_PIN D24 IOSTANDARD LVCMOS18 } [get_ports { DATA7 }];
+
+## SD Card Interface
+# Nota: Las señales SDIO están conectadas al banco 501 del PS (1.8V). Se configuran en el bloque IP del Zynq MPSoC.
+
+## PS-Side: DDR4 SODIMM Socket (página 25) y PL-Side: DDR4 Component Memory (página 29)
+# Asignación de pines para DDR4 SODIMM
+set_property -dict { PACKAGE_PIN AP29 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[0] }];
+set_property -dict { PACKAGE_PIN AP30 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[1] }];
+set_property -dict { PACKAGE_PIN AP26 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[2] }];
+set_property -dict { PACKAGE_PIN AP27 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[3] }];
+set_property -dict { PACKAGE_PIN AP25 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[4] }];
+set_property -dict { PACKAGE_PIN AN24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[5] }];
+set_property -dict { PACKAGE_PIN AM29 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[6] }];
+set_property -dict { PACKAGE_PIN AM28 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[7] }];
+set_property -dict { PACKAGE_PIN AM26 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[8] }];
+set_property -dict { PACKAGE_PIN AM25 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[9] }];
+set_property -dict { PACKAGE_PIN AL28 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[10] }];
+set_property -dict { PACKAGE_PIN AK27 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[11] }];
+
+# Señales de dirección A12 y A13
+set_property -dict { PACKAGE_PIN AJ25 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[12] }];
+set_property -dict { PACKAGE_PIN AL25 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_A[13] }];
+
+# Señales de Banco BA0 y BA1
+set_property -dict { PACKAGE_PIN AH26 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_BA[0] }];
+set_property -dict { PACKAGE_PIN AG26 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_BA[1] }];
+
+# Señales de Grupo de Banco BG0 y BG1
+set_property -dict { PACKAGE_PIN AK28 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_BG[0] }];
+set_property -dict { PACKAGE_PIN AH27 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_BG[1] }];
+
+# Byte Lane 0 - DQ0 a DQ7
+set_property -dict { PACKAGE_PIN AP20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[0] }];
+set_property -dict { PACKAGE_PIN AP18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[1] }];
+set_property -dict { PACKAGE_PIN AP19 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[2] }];
+set_property -dict { PACKAGE_PIN AP17 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[3] }];
+set_property -dict { PACKAGE_PIN AM20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[4] }];
+set_property -dict { PACKAGE_PIN AM19 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[5] }];
+set_property -dict { PACKAGE_PIN AM18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[6] }];
+set_property -dict { PACKAGE_PIN AL18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[7] }];
+
+# Byte Lane 1 - DQ8 a DQ15
+set_property -dict { PACKAGE_PIN AP22 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[8] }];
+set_property -dict { PACKAGE_PIN AP21 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[9] }];
+set_property -dict { PACKAGE_PIN AP24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[10] }];
+set_property -dict { PACKAGE_PIN AN23 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[11] }];
+set_property -dict { PACKAGE_PIN AL21 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[12] }];
+set_property -dict { PACKAGE_PIN AL22 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[13] }];
+set_property -dict { PACKAGE_PIN AM23 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[14] }];
+set_property -dict { PACKAGE_PIN AL23 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[15] }];
+
+# Byte Lane 2 - DQ16 a DQ23
+set_property -dict { PACKAGE_PIN AL20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[16] }];
+set_property -dict { PACKAGE_PIN AK20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[17] }];
+set_property -dict { PACKAGE_PIN AJ20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[18] }];
+set_property -dict { PACKAGE_PIN AK18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[19] }];
+set_property -dict { PACKAGE_PIN AG20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[20] }];
+set_property -dict { PACKAGE_PIN AH18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[21] }];
+set_property -dict { PACKAGE_PIN AG19 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[22] }];
+set_property -dict { PACKAGE_PIN AG18 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[23] }];
+
+# Byte Lane 3 - DQ24 a DQ27
+set_property -dict { PACKAGE_PIN AG21 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[24] }];
+set_property -dict { PACKAGE_PIN AH21 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[25] }];
+set_property -dict { PACKAGE_PIN AG24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[26] }];
+set_property -dict { PACKAGE_PIN AG23 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DQ[27] }];
+
+# Byte Lane 0 - DQS y DM
+set_property -dict { PACKAGE_PIN AP15 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_DQS_p[0] }];
+set_property -dict { PACKAGE_PIN AN15 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_DQS_n[0] }];
+set_property -dict { PACKAGE_PIN AM17 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DM[0] }];
+
+# Byte Lane 1 - DQS y DM
+set_property -dict { PACKAGE_PIN AM16 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_DQS_p[1] }];
+set_property -dict { PACKAGE_PIN AL16 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_DQS_n[1] }];
+set_property -dict { PACKAGE_PIN AL17 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_DM[1] }];
+
+# Señales de Control
+set_property -dict { PACKAGE_PIN AM24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_WE_n }];
+set_property -dict { PACKAGE_PIN AK24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_CAS_n }];
+set_property -dict { PACKAGE_PIN AL24 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_RAS_n }];
+set_property -dict { PACKAGE_PIN AG25 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_ACT_n }];
+set_property -dict { PACKAGE_PIN AF22 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_ALERT_n }];
+set_property -dict { PACKAGE_PIN AF20 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_PARITY }};
+set_property -dict { PACKAGE_PIN AN28 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_CS_n[0] }];
+
+# Señales de Reloj
+set_property -dict { PACKAGE_PIN AN27 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_CK_p }];
+set_property -dict { PACKAGE_PIN AN26 IOSTANDARD DIFF_SSTL12 } [get_ports { DDR4_SODIMM_CK_n }];
+
+# Señales de CKE y ODT
+set_property -dict { PACKAGE_PIN AN29 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_CKE[0] }];
+set_property -dict { PACKAGE_PIN AM30 IOSTANDARD SSTL12 } [get_ports { DDR4_SODIMM_ODT[0] }];
+
+## Pagina 27 Asignar DQ28-DQ63: Completa las asignaciones para las líneas de datos restantes desde DQ[28] hasta DQ[63].
+## Estrobos de Datos y Máscaras: Asegúrate de asignar los estrobos de datos DQS. 
+## las señales de máscara de datos DM para todos los byte lanes adicionales.
+## asignar DDR4_SODIMM_RESET_n, DDR4_SODIMM_ODT[1], DDR4_SODIMM_CKE[1]
+
+## I2C, SPI, CAN Bus/asignaciones y voltajes IOSTANDARD 1.2 1.8 12/18
+
+
+
+# Continúa asignando los demás pines necesarios para la DDR4 (BA, BG, DQ, DQS, CK, CS_n, CKE, ODT, etc.)
