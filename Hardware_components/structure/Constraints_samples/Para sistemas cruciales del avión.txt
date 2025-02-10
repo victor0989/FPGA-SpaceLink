@@ -1,0 +1,11 @@
+Para sistemas cruciales del avión:
+
+## Clock Generation (página 44): Configuración de reloj para sincronización precisa de componentes.
+
+## UART TX/RX Receiver-Transceiver (página 61): Comunicación entre sistemas críticos del avión.
+
+## MIO signals: Interfaces adicionales para conectividad.
+
+## DisplayPort/HDMI: Salida de video para monitoreo y sistemas de navegación.
+
+## USB 2.0 ULPI Transceiver: Conexiones para dispositivos adicionales.
