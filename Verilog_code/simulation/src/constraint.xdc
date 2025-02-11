@@ -1,4 +1,7 @@
 ## Constraints BCD counter_leds
+## Adjust your own constraints file to the ZCU102 manual 
+## or https://www.ic-xilinx.com/files/ca/ek-u1-zcu106-g-j.pdf as you see fit. 
+## It can also be used to simulate signals or sinusoids in Python and BCD byte counters (resources)
 
 ## Configuración del reloj de sistema
 ################################################################################
