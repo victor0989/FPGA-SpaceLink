@@ -75,10 +75,10 @@ For **actual deployment in space**, the following radiation-tolerant FPGAs are c
 - **Xilinx Kintex UltraScale XQRKU060**
 - **Microchip (Microsemi) RTG4**
 - **Xilinx Virtex-5QV**
-- ## Constraints BCD counter_leds
-- ## Adjust your own constraints file to the ZCU102 manual 
-- ## or https://www.ic-xilinx.com/files/ca/ek-u1-zcu106-g-j.pdf as you see fit. 
-- ## It can also be used to simulate signals or sinusoids in Python and BCD byte counters (resources)
+- **Constraints BCD counter_leds**
+- **Adjust your own constraints file to the ZCU102 manual**
+- **https://www.ic-xilinx.com/files/ca/ek-u1-zcu106-g-j.pdf as you see fit.** 
+- **It can also be used to simulate signals or sinusoids in Python and BCD byte counters (resources)**
 
 ## Configuración del reloj de sistema
 ################################################################################
